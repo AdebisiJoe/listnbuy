@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "listnbuy",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
