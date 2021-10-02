@@ -32,6 +32,10 @@ const routes: Routes = [
     component: HomepagePage
   },
   {
+    path: 'tabs/home',
+    component: HomepagePage
+  },
+  {
     path: 'home',
     component: HomepagePage
   },

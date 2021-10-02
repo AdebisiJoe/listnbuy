@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public appPages = [
     { title: 'Home', url: '/home', icon: 'home' },
-    { title: 'General Marketplace', url: '/market/marketplace', icon: 'cart' },
-    { title: 'Cars Marketplace', url: '/market/cars', icon: 'car' },
-    { title: 'Bikes Marketplace', url: '/market/bikes', icon: 'bicycle' },
-    { title: 'Parts Marketplace', url: '/market/vehicleparts', icon: 'cog' },
+    { title: 'General Marketplace', url: '/tabs/market/marketplace', icon: 'cart' },
+    { title: 'Cars Marketplace', url: '/tabs/market/cars', icon: 'car' },
+    { title: 'Bikes Marketplace', url: '/tabs/market/bikes', icon: 'bicycle' },
+    { title: 'Parts Marketplace', url: '/tabs/market/vehicleparts', icon: 'cog' },
     // { title: 'Trash', url: '/folder/Trash', icon: 'trash' },
     // { title: 'Spam', url: '/folder/Spam', icon: 'warning' },
   ];

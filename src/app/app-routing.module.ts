@@ -8,6 +8,10 @@ const routes: Routes = [
       import('./pages/home/home.module').then((m) => m.HomeModule),
   },
   {
+    path: 'tabs',
+    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },
+  {
     path: 'auth',
     loadChildren: () =>
       import('./pages/auth/auth.module').then((m) => m.AuthModule),
@@ -18,9 +22,20 @@ const routes: Routes = [
       import('./pages/search/search.module').then((m) => m.SearchModule),
   },
   {
-    path: 'market',
-    loadChildren: () =>
-      import('./pages/markets/markets.module').then((m) => m.MarketsModule),
+    path: 'favourite',
+    loadChildren: () => import('./pages/home/favourite/favourite.module').then( m => m.FavouritePageModule)
+  },
+  {
+    path: 'sell',
+    loadChildren: () => import('./pages/home/sell/sell.module').then( m => m.SellPageModule)
+  },
+  {
+    path: 'messages',
+    loadChildren: () => import('./pages/home/messages/messages.module').then( m => m.MessagesPageModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/home/profile/profile.module').then( m => m.ProfilePageModule)
   }
 ];
 
