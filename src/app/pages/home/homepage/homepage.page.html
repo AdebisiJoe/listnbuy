@@ -1,0 +1,65 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-text-center">
+    <h4>Welcome to our Lobby</h4>
+    <p>Select a Gateway</p>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card  [routerLink]="['/market/cars']" class="card ion-align-items-center">
+          <ion-card-header class="ion-text-center">
+            <ion-icon name="car" ></ion-icon>
+          </ion-card-header>
+          <ion-card-content class="cardtext ion-text-center">
+            <h5 class="cardtext">Cars</h5>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card  [routerLink]="['/market/bikes']" class="card ion-justify-content-center">
+          <ion-card-header class="ion-text-center">
+            <ion-icon name="bicycle"></ion-icon>
+          </ion-card-header>
+
+          <ion-card-content class="cardtext ion-text-center">
+            <h5 class="cardtext">bikes</h5>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card  [routerLink]="['/market/vehicleparts']" class="card ion-justify-content-center">
+          <ion-card-header  class="ion-text-center">
+            <ion-icon name="cog"></ion-icon>
+          </ion-card-header>
+
+          <ion-card-content class="cardtext ion-text-center">
+            <h5 class="cardtext">Vehicle Parts</h5>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card  [routerLink]="['/market/marketplace']" class="card ion-justify-content-center">
+          <ion-card-header  class="ion-text-center">
+            <ion-icon name="cart"></ion-icon>
+          </ion-card-header>
+
+          <ion-card-content class="cardtext ion-text-center">
+            <h5 class="cardtext">Market place</h5>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
