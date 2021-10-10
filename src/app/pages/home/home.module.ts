@@ -13,12 +13,14 @@ import { OnboardingPage } from './onboarding/onboarding.page';
 import { PrivacypolicyPage } from './privacypolicy/privacypolicy.page';
 import { TermsandconditionPage } from './termsandcondition/termsandcondition.page';
 
+import { SharedDirectivesModule } from '../../directives/shared-directives.module';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    SharedDirectivesModule
   ],
   declarations: [
     AboutusPage,

@@ -28,7 +28,7 @@ const routes: Routes = [
     component: FeedbackPage
   },
   {
-    path: '',
+    path: 'home',
     component: HomepagePage
   },
   {
@@ -40,7 +40,7 @@ const routes: Routes = [
     component: HomepagePage
   },
   {
-    path: 'onboarding',
+    path: '',
     component: OnboardingPage
   },
   {

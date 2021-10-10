@@ -36,6 +36,10 @@ const routes: Routes = [
   {
     path: 'profile',
     loadChildren: () => import('./pages/home/profile/profile.module').then( m => m.ProfilePageModule)
+  },
+  {
+    path: 'loginmodal',
+    loadChildren: () => import('./components/loginmodal/loginmodal.module').then( m => m.LoginmodalPageModule)
   }
 ];
 
