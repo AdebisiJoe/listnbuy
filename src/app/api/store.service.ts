@@ -15,14 +15,14 @@ export class StoreService {
 
   }
 
-  encryptText(text: string) {
-    return Crypto.AES.encrypt(text, this.encryptionKey).toString();
-  }
+  // encryptText(text: string) {
+  //   return Crypto.AES.encrypt(text, this.encryptionKey).toString();
+  // }
 
-  decryptText(encrypted: string) {
-    let dec = Crypto.AES.decrypt(encrypted, this.encryptionKey);
-    return dec.toString(Crypto.enc.Utf8);
-  }
+  // decryptText(encrypted: string) {
+  //   let dec = Crypto.AES.decrypt(encrypted, this.encryptionKey);
+  //   return dec.toString(Crypto.enc.Utf8);
+  // }
 
   saveUser = (user: any) => {
     if (user) {
@@ -33,7 +33,7 @@ export class StoreService {
 
   saveAuth = (auth: string) => {
     this.auth = auth;
-    const secureAuth = this.encryptText(auth);
+    const secureAuth = this.crypto.encryptText(auth);
     localStorage.setItem("auth", secureAuth);
   }
 
@@ -55,7 +55,7 @@ export class StoreService {
   getAuth = () => {
     if (!this.auth) {
       const secureAuth = localStorage.getItem("auth");
-      this.auth = this.decryptText(secureAuth);
+      this.auth = this.crypto.decryptText(secureAuth);
     }
     return this.auth
   }

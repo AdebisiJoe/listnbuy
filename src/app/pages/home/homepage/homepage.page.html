@@ -1,13 +1,31 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Home</ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- <ion-header [translucent]="true"> -->
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-menu-button></ion-menu-button>
+  </ion-buttons>
 
-<ion-content>
+  <div class="ion-text-center">
+    <img
+      src="../../../../assets/images/logo.png"
+      style="width: 153px; height: 39px; margin-top: 20px"
+    />
+  </div>
+
+  <!-- <ion-buttons slot="end">
+    <ion-icon name="person-outline" slot="icon-only"></ion-icon>
+  </ion-buttons> -->
+
+ 
+
+  <ion-buttons slot="end">
+    <ion-button color="primary" >
+      <ion-icon name="search" color="primary" slot="icon-only"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-toolbar>
+<!-- </ion-header> -->
+
+<ion-content fullscreen>
   <div class="ion-text-center">
     <h4>Welcome to our Lobby</h4>
     <p>Select a Gateway</p>
@@ -16,9 +34,12 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <ion-card  [routerLink]="['/tabs/market/cars']" class="card ion-align-items-center">
+        <ion-card
+          [routerLink]="['/tabs/market/cars']"
+          class="card ion-align-items-center"
+        >
           <ion-card-header class="ion-text-center">
-            <ion-icon name="car" ></ion-icon>
+            <ion-icon name="car"></ion-icon>
           </ion-card-header>
           <ion-card-content class="cardtext ion-text-center">
             <h5 class="cardtext">Cars</h5>
@@ -26,7 +47,10 @@
         </ion-card>
       </ion-col>
       <ion-col>
-        <ion-card  [routerLink]="['/tabs/market/bikes']" class="card ion-justify-content-center">
+        <ion-card
+          [routerLink]="['/tabs/market/bikes']"
+          class="card ion-justify-content-center"
+        >
           <ion-card-header class="ion-text-center">
             <ion-icon name="bicycle"></ion-icon>
           </ion-card-header>
@@ -39,8 +63,11 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-card  [routerLink]="['/tabs/market/vehicleparts']" class="card ion-justify-content-center">
-          <ion-card-header  class="ion-text-center">
+        <ion-card
+          [routerLink]="['/tabs/market/vehicleparts']"
+          class="card ion-justify-content-center"
+        >
+          <ion-card-header class="ion-text-center">
             <ion-icon name="cog"></ion-icon>
           </ion-card-header>
 
@@ -50,8 +77,11 @@
         </ion-card>
       </ion-col>
       <ion-col>
-        <ion-card  [routerLink]="['/tabs/market/marketplace']" class="card ion-justify-content-center">
-          <ion-card-header  class="ion-text-center">
+        <ion-card
+          [routerLink]="['/tabs/market/marketplace']"
+          class="card ion-justify-content-center"
+        >
+          <ion-card-header class="ion-text-center">
             <ion-icon name="cart"></ion-icon>
           </ion-card-header>
 
@@ -65,9 +95,75 @@
 
   <ion-grid>
     <ion-col>
-        <ion-slides>
-          
-        </ion-slides> 
+      <h3 class="ion-margin">Premium Ads</h3>
+      <ion-slides [options]="catSlideOpts">
+        <ion-slide *ngFor="let v of vehicleArrays">
+          <ion-card style="width: 310px; height: 320px">
+            <img
+              [src]="v.image.small_image"
+              style="width: 100%; height: 150px"
+            />
+            <ion-card-header>
+              <div class="ion-text-start">
+                <ion-card-title>{{v.name}}</ion-card-title>
+              </div>
+            </ion-card-header>
+            <ion-card-content>
+              <div class="ion-text-start">
+                {{v.description}}
+
+                <div
+                  style="
+                    background-color: #2a84f2;
+                    width: 54px;
+                    height: 19px;
+                    border-radius: 5px;
+                  "
+                >
+                  <p style="color: #ffffff">{{v.price_formatted}}</p>
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+      <h5 class="ion-margin" style="color: #0174f5;">See All</h5>
     </ion-col>
-  </ion-grid>  
+  
+    <ion-col>
+      <h3 class="ion-margin">Basic Ads</h3>
+      <ion-slides  [options]="catSlideOpts">
+        <ion-slide *ngFor="let v of vehicleBasicArrays">
+          <ion-card style="width: 310px; height: 320px">
+            <img
+              [src]="v.image.small_image"
+              style="width: 100%; height: 150px"
+            />
+            <ion-card-header>
+              <div class="ion-text-start">
+                <ion-card-title>{{v.name}}</ion-card-title>
+              </div>
+            </ion-card-header>
+            <ion-card-content>
+              <div class="ion-text-start">
+                {{v.description}}
+
+                <div
+                  style="
+                    background-color: #2a84f2;
+                    width: 54px;
+                    height: 19px;
+                    border-radius: 5px;
+                  "
+                >
+                  <p style="color: #ffffff">{{v.price_formatted}}</p>
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
+      <h5 class="ion-margin" style="color: #0174f5;">See All</h5>
+    </ion-col>
+  </ion-grid>
 </ion-content>

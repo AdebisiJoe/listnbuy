@@ -5,6 +5,7 @@ import { CarsPage } from './cars/cars.page';
 import { BikesPage } from './bikes/bikes.page';
 import { MarketplacePage } from './marketplace/marketplace.page';
 import { VehiclepartsPage } from './vehicleparts/vehicleparts.page';
+import { DetailsPage } from './details/details.page'; 
 
 const routes: Routes = [
 
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: 'vehicleparts',
     component: VehiclepartsPage,
+  },
+  {
+    path: 'details/:id',
+    component:DetailsPage
   },
 ];
 

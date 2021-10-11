@@ -1,17 +1,54 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+import { StoreService } from './store.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HomeService {
+  path = environment.apiUrl;
+  path2 = environment.apiUrl2;
+  authHttpOptions: { headers: HttpHeaders };
 
-  constructor() { }
-
-
-  public getHomeAdverts(){
-
+  constructor(private http: HttpClient, private store: StoreService) {
+    // const auth = this.getAuth();
+    const auth = '';
+    this.authHttpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: auth,
+      }),
+    };
   }
 
+  getAuth = () => {
+    return this.store.getAuth();
+  };
+
+  getHomeVehicleAdverts = () => {
+    return this.http
+      .get<any>(this.path2 + `adverts/vehicles`, this.authHttpOptions)
+      .toPromise();
+  };
+
+  getHomeBikesAdverts = () => {
+    return this.http
+      .get<any>(this.path2 + `adverts/bikes`, this.authHttpOptions)
+      .toPromise();
+  };
+
+  getHomeGeneralAdverts = () => {
+    return this.http
+      .get<any>(this.path2 + `adverts/general`, this.authHttpOptions)
+      .toPromise();
+  };
+
+  getHomePartsAdverts = () => {
+    return this.http
+      .get<any>(this.path2 + `adverts/parts`, this.authHttpOptions)
+      .toPromise();
+  };
 
   // getDocuments = (id: string) => {
   //   return this.http
@@ -36,7 +73,6 @@ export class HomeService {
   //     .toPromise();
   // };
 
-
   // lenderDeclineApplication = (id: string, comment: string) => {
   //   console.log("id here", id);
   //   console.log("comment here", comment);
@@ -48,5 +84,4 @@ export class HomeService {
   //     )
   //     .toPromise();
   // };
-
 }

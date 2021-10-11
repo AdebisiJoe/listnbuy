@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { BikeService } from 'src/app/api/bike.service'; 
+
 @Component({
   selector: 'app-bikes',
   templateUrl: './bikes.page.html',
@@ -7,9 +9,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BikesPage implements OnInit {
 
-  constructor() { }
+  constructor(private bikeService:BikeService) { }
 
-  ngOnInit() {
+  vehicleArrays=[];
+
+  vehicleBasicArrays=[];
+
+  catSlideOpts = {
+    freeMode: true,
+    slidesPerView: 2.2,
+    slidesOffsetBefore: 11,
+    spaceBetween: 1,
+  };
+
+  async ngOnInit() {
+    const vehicleAdverts = await this.bikeService.getHomeBikesAdverts();
+    
+    this.vehicleArrays=vehicleAdverts.data.premium_plus_ads;
+    this.vehicleBasicArrays=vehicleAdverts.data.basic;
+    console.log(vehicleAdverts.data.premium_plus_ads);
+    console.log(vehicleAdverts.data);
   }
 
 }
