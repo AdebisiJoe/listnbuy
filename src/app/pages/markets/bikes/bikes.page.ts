@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { BikeService } from 'src/app/api/bike.service'; 
+import { BikeService } from 'src/app/api/bike.service';
 
 @Component({
   selector: 'app-bikes',
@@ -8,12 +9,11 @@ import { BikeService } from 'src/app/api/bike.service';
   styleUrls: ['./bikes.page.scss'],
 })
 export class BikesPage implements OnInit {
+  constructor(private bikeService: BikeService, private router: Router) {}
 
-  constructor(private bikeService:BikeService) { }
+  vehicleArrays = [];
 
-  vehicleArrays=[];
-
-  vehicleBasicArrays=[];
+  vehicleBasicArrays = [];
 
   catSlideOpts = {
     freeMode: true,
@@ -24,11 +24,14 @@ export class BikesPage implements OnInit {
 
   async ngOnInit() {
     const vehicleAdverts = await this.bikeService.getHomeBikesAdverts();
-    
-    this.vehicleArrays=vehicleAdverts.data.premium_plus_ads;
-    this.vehicleBasicArrays=vehicleAdverts.data.basic;
+
+    this.vehicleArrays = vehicleAdverts.data.premium_plus_ads;
+    this.vehicleBasicArrays = vehicleAdverts.data.basic;
     console.log(vehicleAdverts.data.premium_plus_ads);
     console.log(vehicleAdverts.data);
   }
 
+  seeAll() {
+    this.router.navigateByUrl(`/tabs/market/products/bikes`);
+  }
 }

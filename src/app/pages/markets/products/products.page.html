@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>products</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="./avatar-han.png" />
+      </ion-avatar>
+      <ion-label>
+        <h2>Han</h2>
+        <h3>Look, kid...</h3>
+        <p>I've got enough on my plate as it is, and I...</p>
+      </ion-label>
+    </ion-item>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-col col-1>
+          <ion-button slot="start" (click)="onClick()" color="primary">
+            <ion-icon slot="start" name="add"></ion-icon>
+            Chat
+          </ion-button>
+        </ion-col>
+
+        <ion-col col-2>
+          <ion-button slot="end" (click)="onClick()" color="primary">
+            <ion-icon slot="start" name="add"></ion-icon>
+            Call
+          </ion-button>
+        </ion-col>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -20,18 +20,19 @@
   <ion-grid>
     <ion-row>
       <ion-col>
-        <div>Vehicles</div>
+        <div  [routerLink]="['/tabs/market/cars']">Vehicles</div>
       </ion-col>
       <ion-col>
-        <div>Motorbikes</div>
+        <div  [routerLink]="['/tabs/market/bikes']">Motorbikes</div>
       </ion-col>
       <ion-col>
-        <div>Parts</div>
+        <div [routerLink]="['/tabs/market/vehicleparts']">Parts</div>
       </ion-col>
       <ion-col>
         <div
-          style="border: #737e8a; border-style: solid; border-width: 0.5px"
+          style="border: #737e8a; border-style: solid; border-width: 0.5px;border-radius: 5px;padding: 3px;"
           class="ion-text-center"
+          [routerLink]="['/tabs/market/marketplace']"
         >
           Market
         </div>
@@ -63,7 +64,7 @@
                     width: 54px;
                     height: 19px;
                     border-radius: 5px;
-                   
+                    padding-left: 4px;
                   "
                 >
                   <p style="color: #ffffff;">{{v.price_formatted}}</p>
@@ -73,7 +74,7 @@
           </ion-card>
         </ion-slide>
       </ion-slides>
-      <h5 class="ion-margin" style="color: #0174f5">See All</h5>
+      <h5 class="ion-margin" style="color: #0174f5" (click)="seeAll()">See All</h5>
     </ion-col>
 
     <ion-col>
@@ -102,7 +103,7 @@
                     width: 54px;
                     height: 19px;
                     border-radius: 5px;
-                   
+                    padding-left: 4px;
                   "
                 >
                   <p style="color: #ffffff;">{{v.price_formatted}}</p>
@@ -112,7 +113,7 @@
           </ion-card>
         </ion-slide>
       </ion-slides>
-      <h5 class="ion-margin" style="color: #0174f5">See All</h5>
+      <h5 class="ion-margin" style="color: #0174f5"  (click)="seeAll()">See All</h5>
     </ion-col>
   </ion-grid>
 </ion-content>

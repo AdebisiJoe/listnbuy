@@ -5,10 +5,10 @@ import { CarsPage } from './cars/cars.page';
 import { BikesPage } from './bikes/bikes.page';
 import { MarketplacePage } from './marketplace/marketplace.page';
 import { VehiclepartsPage } from './vehicleparts/vehicleparts.page';
-import { DetailsPage } from './details/details.page'; 
+import { DetailsPage } from './details/details.page';
+import { ProductsPage } from './products/products.page';
 
 const routes: Routes = [
-
   {
     path: 'cars',
     component: CarsPage,
@@ -27,7 +27,11 @@ const routes: Routes = [
   },
   {
     path: 'details/:id',
-    component:DetailsPage
+    component: DetailsPage,
+  },
+  {
+    path: 'products/:category',
+    component: ProductsPage,
   },
 ];
 

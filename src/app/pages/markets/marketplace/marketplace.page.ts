@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
-import { GeneralMarketService } from 'src/app/api/generalmarket.service'; 
+import { GeneralMarketService } from 'src/app/api/generalmarket.service';
 
 @Component({
   selector: 'app-marketplace',
@@ -8,12 +9,14 @@ import { GeneralMarketService } from 'src/app/api/generalmarket.service';
   styleUrls: ['./marketplace.page.scss'],
 })
 export class MarketplacePage implements OnInit {
+  constructor(
+    private generalMarketService: GeneralMarketService,
+    private router: Router
+  ) {}
 
-  constructor(private generalMarketService:GeneralMarketService) { }
+  vehicleArrays = [];
 
-  vehicleArrays=[];
-
-  vehicleBasicArrays=[];
+  vehicleBasicArrays = [];
 
   catSlideOpts = {
     freeMode: true,
@@ -23,12 +26,16 @@ export class MarketplacePage implements OnInit {
   };
 
   async ngOnInit() {
-    const vehicleAdverts = await this.generalMarketService.getHomeGeneralAdverts();
-    
-    this.vehicleArrays=vehicleAdverts.data.premium_plus_ads;
-    this.vehicleBasicArrays=vehicleAdverts.data.basic;
+    const vehicleAdverts =
+      await this.generalMarketService.getHomeGeneralAdverts();
+
+    this.vehicleArrays = vehicleAdverts.data.premium_plus_ads;
+    this.vehicleBasicArrays = vehicleAdverts.data.basic;
     console.log(vehicleAdverts.data.premium_plus_ads);
     console.log(vehicleAdverts.data);
   }
 
+  seeAll() {
+    this.router.navigateByUrl(`/tabs/market/products/general`);
+  }
 }

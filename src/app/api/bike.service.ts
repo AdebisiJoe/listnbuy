@@ -44,17 +44,19 @@ export class BikeService {
       .toPromise();
   };
 
+  //https://listnbuy.com/api/v2/filter?category=vehicles
+
   getHomePartsAdverts = () => {
     return this.http
       .get<any>(this.path2 + `adverts/parts`, this.authHttpOptions)
       .toPromise();
   };
 
-  // getDocuments = (id: string) => {
-  //   return this.http
-  //     .get<any>(this.path2 + `admin/loan/document/${id}`, this.authHttpOptions)
-  //     .toPromise();
-  // };
+  getAllBikes = (category:string) => {
+    return this.http
+      .get<any>(this.path2 + `filter?category=${category}`, this.authHttpOptions)
+      .toPromise();
+  };
 
   // getComments = (id: string) => {
   //   return this.http
