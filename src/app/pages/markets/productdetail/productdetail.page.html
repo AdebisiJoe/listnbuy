@@ -1,0 +1,71 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-buttons slot="start">
+      <ion-button fill="solid" shape="round" color="light" (click)="goBack()">
+        <ion-icon slot="icon-only" name="arrow-back" color="primary"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ product?.advert.name }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="solid" shape="round" color="light">
+        <ion-icon
+          slot="icon-only"
+          name="share-outline"
+          color="primary"
+        ></ion-icon>
+      </ion-button>
+      <ion-button fill="solid" shape="round" color="light">
+        <ion-icon
+          slot="icon-only"
+          name="search-outline"
+          color="primary"
+        ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content
+  [fullscreen]="true"
+  scrollEvents="true"
+  [appParallax]="img"
+  (ionScroll)="onScroll($event)"
+>
+  <ion-slides mode="ios" pager="ios" scrollbar="ios" #mainSlides pager="true">
+    <ion-slide *ngFor="let slide of slideImages" [ngStyle]="getStyle(slide)">
+    </ion-slide>
+  </ion-slides>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="6">
+        <h5>{{product?.advert.price_formatted}}</h5>
+        <p>{{product?.advert.suggested_retail}}</p>
+      </ion-col>
+      <ion-col size="6">uploaded in {{product?.advert.city.name}}</ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <h4>{{category}} Details & Description:</h4>
+
+        <div
+
+        class="ion-margin"
+        style="
+          border-style: solid;
+          border-width: 0.5px;
+          height: 150px;
+          width: 90%;
+        "
+      >
+  
+    </div>
+
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+  
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">listnbuy</string>
+    <string name="title_activity_main">listnbuy</string>
+    <string name="package_name">com.listnbuy.app</string>
+    <string name="custom_url_scheme">com.listnbuy.app</string>
+</resources>

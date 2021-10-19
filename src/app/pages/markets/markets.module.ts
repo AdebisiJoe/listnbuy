@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -9,19 +9,28 @@ import { CarsPage } from './cars/cars.page';
 import { BikesPage } from './bikes/bikes.page';
 import { MarketplacePage } from './marketplace/marketplace.page';
 import { VehiclepartsPage } from './vehicleparts/vehicleparts.page';
+import { ProductsPage } from './products/products.page';
+import { AutoCompleteModule } from 'ionic4-auto-complete';
+import { ProductdetailPage } from './productdetail/productdetail.page';
+import { SharedDirectivesModule } from 'src/app/directives/shared-directives.module'; 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MarketsRoutingModule
+    MarketsRoutingModule,
+    ReactiveFormsModule,
+    AutoCompleteModule,
+    SharedDirectivesModule
   ],
   declarations: [
     CarsPage,
     BikesPage,
     MarketplacePage,
-    VehiclepartsPage
-  ]
+    VehiclepartsPage,
+    ProductsPage,
+    ProductdetailPage
+  ],
 })
 export class MarketsModule {}

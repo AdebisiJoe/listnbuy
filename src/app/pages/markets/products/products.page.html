@@ -1,38 +1,78 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>products</ion-title>
-  </ion-toolbar>
-</ion-header>
+<!-- <ion-header> -->
+<!-- <ion-toolbar> -->
+<!-- <ion-title>products</ion-title> -->
+
+<!-- </ion-toolbar> -->
+<!-- </ion-header> -->
 
 <ion-content>
-  <ion-card>
-    <ion-item>
-      <ion-avatar slot="start">
-        <img src="./avatar-han.png" />
-      </ion-avatar>
-      <ion-label>
-        <h2>Han</h2>
-        <h3>Look, kid...</h3>
-        <p>I've got enough on my plate as it is, and I...</p>
-      </ion-label>
-    </ion-item>
+  <!-- Searchbar with a custom debounce -->
+  <!-- <form [formGroup]="myForm" (ngSubmit)="submit()" novalidate>
+    <div class="ion-form-group">
+      <ion-auto-complete
+        [dataProvider]="productsAutoCompleteServiceService"
+        formControlName="country"
+      ></ion-auto-complete>
+    </div>
 
-    <ion-card-content>
-      <ion-item>
-        <ion-col col-1>
-          <ion-button slot="start" (click)="onClick()" color="primary">
-            <ion-icon slot="start" name="add"></ion-icon>
-            Chat
-          </ion-button>
-        </ion-col>
+    <button ion-button type="submit" block>Add Country</button>
+  </form> -->
 
-        <ion-col col-2>
-          <ion-button slot="end" (click)="onClick()" color="primary">
-            <ion-icon slot="start" name="add"></ion-icon>
-            Call
-          </ion-button>
-        </ion-col>
-      </ion-item>
-    </ion-card-content>
-  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12">
+        <ion-auto-complete
+          [dataProvider]="productsAutoCompleteServiceService"
+          #searchbar
+          style="width: 100%"
+         
+          (ionAutoInput)="on('ionAutoInput', $event)"
+          (itemSelected)="selectItem($event)"
+         
+        ></ion-auto-complete>
+      </ion-col>
+      <!-- <ion-col size="3">
+        <ion-button color="primary" (click)="search()">Search</ion-button>
+      </ion-col> -->
+      <ion-col size="6" *ngFor="let p of products">
+        <ion-card style="width: 155px; height: 280px" (click)="gotoDetail(p.encoded_id)">
+          <img [src]="p.image.small_image" style="width: 100%; height: 150px" />
+          <ion-card-header>
+            <div class="ion-text-start">
+              <p
+                style="
+                  font-size: 14px;
+                  font-weight: bold;
+                  margin-top: -13px;
+                  color: #373535;
+                "
+              >
+                {{p.name}}
+              </p>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+            <div
+              class="ion-text-start"
+              style="margin-top: -20px; font-size: 10px"
+            >
+              <p style="font-size: 10px">{{p.state.name}}</p>
+              <p style="font-size: 10px">{{p.published_at_formatted}}</p>
+              <div
+                style="
+                  background-color: #2a84f2;
+                  width: 54px;
+                  height: 19px;
+                  border-radius: 5px;
+                  padding-left: 4px;
+                "
+              >
+                <p style="color: #ffffff">{{p.price_formatted}}</p>
+              </div>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -24,14 +24,24 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import "~ionic4-auto-complete/auto-complete";
 
 
-.onboard-main{
-    ion-slides{
-        .swiper-pagination.swiper-pagination-bullets{
-            left: auto !important;
-            right: auto;
-            text-align: left !important;
-        }
-    }
+
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/assets/fonts/Montserrat/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  font-weight: bold;
+  src: url("/assets/fonts/Montserrat/Montserrat-Bold.ttf");
+}
+
+:root {
+  --ion-text-color: #828585;
+  --ion-font-family: "Plex";
 }

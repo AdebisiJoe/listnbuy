@@ -3,10 +3,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { StoreService } from './store.service';
 
+import { map } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+
+import { AutoCompleteService } from 'ionic4-auto-complete';
+
 @Injectable({
   providedIn: 'root',
 })
-export class BikeService {
+export class BikeService implements AutoCompleteService {
   path = environment.apiUrl;
   path2 = environment.apiUrl2;
   authHttpOptions: { headers: HttpHeaders };
@@ -25,6 +30,28 @@ export class BikeService {
   getAuth = () => {
     return this.store.getAuth();
   };
+
+  private results: any[] = [];
+  getResults(keyword: string): Observable<any[]> {
+    let observable: Observable<any>;
+
+    if (this.results.length === 0) {
+      observable = this.http.get(
+        `https://listnbuy.com/api/v2/filter?category=general`
+      );
+    } else {
+      observable = of(this.results);
+    }
+
+    return observable.pipe(
+      map((result) => {
+        console.log(result.data.advert);
+        return result.data.advert.filter((item) => {
+          return item.name.toLowerCase().startsWith(keyword.toLowerCase());
+        });
+      })
+    );
+  }
 
   getHomeVehicleAdverts = () => {
     return this.http

@@ -29,9 +29,19 @@
                 "glob": "**/*.svg",
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
+              },
+              {
+                "glob": "**/*",
+                "input": "node_modules/ionic4-auto-complete/assets/",
+                "output": "./assets/"
               }
             ],
-            "styles": ["src/theme/variables.scss", "src/global.scss"],
+            "styles": ["src/theme/variables.scss", "src/global.scss",  {
+              "input": "./node_modules/photoswipe/dist/photoswipe.css"
+            },
+            {
+              "input": "./node_modules/photoswipe/dist/default-skin/default-skin.css"
+            }],
             "scripts": [],
             "aot": false,
             "vendorChunk": true,
