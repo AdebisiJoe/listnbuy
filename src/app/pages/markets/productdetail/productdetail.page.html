@@ -31,41 +31,141 @@
   [appParallax]="img"
   (ionScroll)="onScroll($event)"
 >
-  <ion-slides mode="ios" pager="ios" scrollbar="ios" #mainSlides pager="true">
-    <ion-slide *ngFor="let slide of slideImages" [ngStyle]="getStyle(slide)">
+  <!-- <div class="grid" photoGalleryGroup>
+  <div class="grid-item" *ngFor="let image of slideImages" [photoGallery]="image.source"><img [src]="image.source" alt="" /></div>
+</div> -->
+
+
+
+  <div
+    style="
+      position: absolute;
+      top: 25%;
+      left: 16px;
+      font-size: 25px;
+      z-index: 2;
+    "
+    (click)="slidePrev()"
+  >
+    <ion-icon name="arrow-back" color="primary"></ion-icon>
+  </div>
+  <div
+    style="
+      position: absolute;
+      top: 25%;
+      right: 16px;
+      font-size: 25px;
+      z-index: 2;
+    "
+    (click)="slideNext()"
+  >
+    <ion-icon name="arrow-forward" color="primary"></ion-icon>
+  </div>
+
+  <!-- <div style="position: absolute;top:15%;right: 16px;font-size: 25px;z-index: 2;" >
+    <ion-icon name="expand" color="primary"></ion-icon>
+  </div> -->
+  <ion-slides
+    mode="ios"
+    pager="ios"
+    scrollbar="ios"
+    #mainSlides
+    pager="true"
+    photoGalleryGroup
+  >
+    <ion-slide
+      *ngFor="let slide of slideImages"
+      [ngStyle]="getStyle(slide)"
+      [photoGallery]="slide.source"
+    >
+      <div
+        style="
+          position: absolute;
+          top: 15%;
+          right: 16px;
+          font-size: 25px;
+          z-index: 2;
+          background-color: #dddddf;
+          height: 40px;
+          width: 40px;
+          border-radius: 25px;
+          padding-top: 7px;
+        "
+        class="ion-text-center"
+      >
+        <ion-icon name="expand" color="primary"></ion-icon>
+      </div>
     </ion-slide>
   </ion-slides>
   <ion-grid fixed>
     <ion-row>
       <ion-col size="6">
-        <h5>{{product?.advert.price_formatted}}</h5>
-        <p>{{product?.advert.suggested_retail}}</p>
+        <p style="color: #030303; font-size: 20px; margin-top:0px">
+          {{product?.advert.price_formatted}}
+        </p>
+        <p style="color: #166bfe; font-size: 10px; margin-top: -5px">
+          Suggested Retail: {{product?.advert.suggested_retail}}
+        </p>
       </ion-col>
-      <ion-col size="6">uploaded in {{product?.advert.city.name}}</ion-col>
+      <ion-col size="6">
+        <p style="font-size: 10px">uploaded in {{product?.advert.city.name}}</p>
+        <p style="font-size: 10px">
+          {{product?.advert.published_at_formatted}}
+          {{product?.advert.published_at}}
+        </p>
+      </ion-col>
     </ion-row>
     <ion-row>
       <ion-col size="12">
         <h4>{{category}} Details & Description:</h4>
 
         <div
+          class="ion-margin"
+          style="
+            border-style: solid;
+            border-width: 0.5px;
+            height: 150px;
+            width: 90%;
+          "
+          *ngIf="category == 'vehicles'"
+        ></div>
 
-        class="ion-margin"
-        style="
-          border-style: solid;
-          border-width: 0.5px;
-          height: 150px;
-          width: 90%;
-        "
-      >
-  
-    </div>
+        <div
+          class="ion-margin"
+          style="
+            border-style: solid;
+            border-width: 0.5px;
+            height: 150px;
+            width: 90%;
+          "
+          *ngIf="category == 'bikes'"
+        ></div>
 
+        <div
+          class="ion-margin"
+          style="
+            border-style: solid;
+            border-width: 0.5px;
+            height: 150px;
+            width: 90%;
+          "
+          *ngIf="category == 'parts'"
+        ></div>
+
+        <div
+          class="ion-margin"
+          style="
+            border-style: solid;
+            border-width: 0.5px;
+            height: 150px;
+            width: 90%;
+          "
+          *ngIf="category == 'general'"
+        ></div>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
-  
-      </ion-col>
+      <ion-col> </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

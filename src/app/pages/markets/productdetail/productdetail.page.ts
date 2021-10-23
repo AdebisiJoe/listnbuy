@@ -4,8 +4,7 @@ import { DOCUMENT } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { IonContent, IonList, IonSlides, isPlatform } from '@ionic/angular';
 
-import * as Photoswipe from 'photoswipe';
-import * as PhotoSwipeUI_Default from "photoswipe/dist/photoswipe-ui-default";
+
 
 import { BikeService } from 'src/app/api/bike.service';
 
@@ -111,6 +110,14 @@ export class ProductdetailPage implements OnInit {
 
 
    // background-image:url(../../../../assets/images/+slide.img)
+}
+
+
+slidePrev() {
+  this.slides.slidePrev();
+}
+slideNext() {
+  this.slides.slideNext();
 }
 
 }

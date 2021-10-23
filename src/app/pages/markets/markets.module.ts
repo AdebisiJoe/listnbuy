@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
+import { PhotoGalleryModule } from '@twogate/ngx-photo-gallery';
 
 import { MarketsRoutingModule } from './markets-routing.module';
 import { CarsPage } from './cars/cars.page';
@@ -12,7 +12,7 @@ import { VehiclepartsPage } from './vehicleparts/vehicleparts.page';
 import { ProductsPage } from './products/products.page';
 import { AutoCompleteModule } from 'ionic4-auto-complete';
 import { ProductdetailPage } from './productdetail/productdetail.page';
-import { SharedDirectivesModule } from 'src/app/directives/shared-directives.module'; 
+import { SharedDirectivesModule } from 'src/app/directives/shared-directives.module';
 
 @NgModule({
   imports: [
@@ -22,7 +22,14 @@ import { SharedDirectivesModule } from 'src/app/directives/shared-directives.mod
     MarketsRoutingModule,
     ReactiveFormsModule,
     AutoCompleteModule,
-    SharedDirectivesModule
+    SharedDirectivesModule,
+    PhotoGalleryModule.forRoot({
+      defaultOptions: {
+        showHideOpacity: true,
+        arrowEl: true,
+        indexIndicatorSep: '-',
+      },
+    }),
   ],
   declarations: [
     CarsPage,
@@ -30,7 +37,7 @@ import { SharedDirectivesModule } from 'src/app/directives/shared-directives.mod
     MarketplacePage,
     VehiclepartsPage,
     ProductsPage,
-    ProductdetailPage
+    ProductdetailPage,
   ],
 })
 export class MarketsModule {}

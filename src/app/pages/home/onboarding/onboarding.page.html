@@ -1,9 +1,5 @@
-
-
-
-
-  <ion-content>
-    <!-- <ion-toolbar>
+<ion-content>
+  <!-- <ion-toolbar>
       <ion-buttons slot="start">
         <ion-button color="primary" (click)="goBack()">
           <ion-icon name="chevron-back" slot="icon-only"></ion-icon>
@@ -17,7 +13,7 @@
       </ion-buttons>
     </ion-toolbar> -->
 
-    <!-- <div>
+  <!-- <div>
 
       <div slot="start">
         <ion-button color="primary" (click)="goBack()">
@@ -32,41 +28,20 @@
       </div>
     </div> -->
 
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button color="primary" (click)="goNext()">
-        <ion-icon name="chevron-forward"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-    <ion-slides
-      pager="true"
-      #mainSlides
-      
-     
-  
-      
-    >
-      <!-- class="bg"
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="primary" (click)="goNext()">
+      <ion-icon name="chevron-forward"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-slides pager="true" #mainSlides>
+    <!-- class="bg"
         style="background-image: url(../../../../assets/images/startbc.jpg)"  slide?.img  -->
-  
-     
-  
-        <ion-slide  *ngFor="let slide of onBoardSlides"  [ngStyle]="getStyle(slide)">
-         
-  
-            <div class="onb-desc ion-text-center">
-              <h4 class="ion-text-capitalize ion-no-margin">{{slide.desc}}</h4>
-              <!-- <p class="ion-no-margin">{{slide.desc}}</p> -->
-            </div>
-         
-        </ion-slide>
-  
 
-  
-    </ion-slides>
-
-  </ion-content>
-
-
-   
-  
-
+    <ion-slide *ngFor="let slide of onBoardSlides" [ngStyle]="getStyle(slide)">
+      <div class="onb-desc ion-text-center">
+        <h4 class="ion-text-capitalize ion-no-margin">{{slide.desc}}</h4>
+        <!-- <p class="ion-no-margin">{{slide.desc}}</p> -->
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

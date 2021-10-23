@@ -43,6 +43,7 @@
       <h3 class="ion-margin">Premium Ads</h3>
       <ion-slides [options]="catSlideOpts">
         <ion-slide *ngFor="let v of vehicleArrays">
+
           <ion-card style="width: 155px; height:280px">
             <img
               [src]="v.image.small_image"
@@ -73,9 +74,15 @@
               </div>
             </ion-card-content>
           </ion-card>
+
+          
         </ion-slide>
       </ion-slides>
+      <div class="ion-text-center" *ngIf="!vehicleArrays">
+        <ion-spinner color="primary"></ion-spinner>
+      </div>
       <h5 class="ion-margin" style="color: #0174f5"  (click)="seeAll()">See All</h5>
+      <!-- <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text> -->
     </ion-col>
 
     <ion-col>
@@ -114,6 +121,9 @@
           </ion-card>
         </ion-slide>
       </ion-slides>
+      <div class="ion-text-center" *ngIf="!vehicleArrays">
+        <ion-spinner color="primary"></ion-spinner>
+      </div>
       <h5 class="ion-margin" style="color: #0174f5"  (click)="seeAll()">See All</h5>
     </ion-col>
   </ion-grid>
