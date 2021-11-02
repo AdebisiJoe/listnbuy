@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { SplashScreen } from '@capacitor/splash-screen';
+
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   public appPages = [
     { title: 'Home', url: '/home', icon: 'home' },
     { title: 'General Marketplace', url: '/tabs/market/marketplace', icon: 'cart' },
@@ -16,4 +19,14 @@ export class AppComponent {
   ];
   public labels = ['Terms & Condition', 'Privacy Policy', 'Feedback', 'Frequently Asked Questions', 'About us'];
   constructor() {}
+
+
+  async ngOnInit() {
+    await SplashScreen.show({
+      showDuration: 4000,
+      autoHide: true
+    });
+  }
+
+
 }

@@ -1,16 +1,23 @@
-import {  AfterViewInit, Component, ElementRef, Inject, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Inject,
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { IonContent, IonList, IonSlides, isPlatform } from '@ionic/angular';
-
-
+import { Platform } from '@ionic/angular';
 
 import { BikeService } from 'src/app/api/bike.service';
 
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { ProductsAutoCompleteServiceService } from 'src/app/api/products-auto-complete-service.service';
-
 
 @Component({
   selector: 'app-productdetail',
@@ -19,22 +26,30 @@ import { ProductsAutoCompleteServiceService } from 'src/app/api/products-auto-co
 })
 export class ProductdetailPage implements OnInit {
   category: string;
-  productcode:string;
+  productcode: string;
   data = null;
 
-  slideImages=[];
+  slideImages = [];
 
   opts = {
     freeMode: true,
     slidesPerView: 1,
     slidesOffsetBefore: 30,
-    slidesOffsetAfter: 100
-  }
+    slidesOffsetAfter: 100,
+  };
 
-  height:number;
-  width:number;
- public onBoardSlides= [];
- @ViewChild ('mainSlides',{static:true}) slides:IonSlides
+  thumbOpts = {
+    initialSlide: 0,
+    slidesPerView: 4,
+    loop: true,
+    spaceBetween: 5,
+  };
+
+  height: number;
+  width: number;
+  public onBoardSlides = [];
+  @ViewChild('mainSlides', { static: true }) slides: IonSlides;
+  @ViewChild('thumbslides', { static: true }) thumbslides: IonSlides;
 
   categorySlidesVisible = false;
 
@@ -44,27 +59,46 @@ export class ProductdetailPage implements OnInit {
   @ViewChild(IonContent) content: IonContent;
   // @ViewChild(IonSlides) slides: IonSlides;
 
+  product: any;
+  seller:any;
+  similarAds=[];
 
-  product:any;
+  catSlideOpts = {
+    freeMode: true,
+    slidesPerView: 2.2,
+    slidesOffsetBefore: 11,
+    spaceBetween: 1,
+  };
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private bikeService: BikeService,
-    private productsAutoCompleteServiceService: ProductsAutoCompleteServiceService
-  ) {}
+    private productsAutoCompleteServiceService: ProductsAutoCompleteServiceService,
+    platform: Platform
+  ) {
+    platform.ready().then(() => {
+      console.log('Width: ' + platform.width());
+      console.log('Height: ' + platform.height());
+      this.height = platform.height();
+      this.width = platform.width();
+    });
+  }
 
   async ngOnInit() {
     this.category = this.route.snapshot.paramMap.get('category');
     this.productcode = this.route.snapshot.paramMap.get('productcode');
     console.log(this.category);
-    
 
-    const advert = await this.productsAutoCompleteServiceService.productDetail(this.category,this.productcode)
+    const advert = await this.productsAutoCompleteServiceService.productDetail(
+      this.category,
+      this.productcode
+    );
     console.log(advert);
-     this.product=advert.data;
-     this.slideImages=advert.data.advert.images;
-     console.log(this.slideImages)
-    
+    this.product = advert.data;
+    this.slideImages = advert.data.advert.images;
+
+    this.similarAds = advert.data.similar_ads;
+    console.log(this.slideImages);
   }
 
   onScroll(ev) {
@@ -83,17 +117,16 @@ export class ProductdetailPage implements OnInit {
 
   isElementInViewport(el) {
     const rect = el.getBoundingClientRect();
-    
+
     return (
       rect.top >= 0 &&
-      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight)
     );
   }
 
-
-  public goBack(){
-    this.router.navigate(['home'])
-
+  public goBack() {
+    this.router.navigate(['home']);
   }
 
   // public skipBtn(){
@@ -104,20 +137,110 @@ export class ProductdetailPage implements OnInit {
   //   this.slides.slideNext();
   // }
 
-
   getStyle(slide): any {
-    return {"background-image" :`url(${slide.source})`,"height":"200px",width:this.width+"px","background-size": "cover"};
+    return {
+      'background-image': `url(${slide.source})`,
+      height: (this.height*0.25)+'px',
+      width: this.width + 'px',
+      'background-size': 'cover',
+      'background-repeat': 'no-repeat',
+      'background-position':'center'
+    };
+  }
+
+  getThumbnailStyle(slide): any {
+    return {
+      'background-image': `url(${slide.source})`,
+      height: '45px',
+      width: '45px',
+      'background-size': 'cover',
+      'border-style': 'solid',
+      'border-width': '0.5px',
+      'border-radius': '5px',
+      'border-color': '#166BFE'
+    };
+  }
+
+  leftIconStyle():any{
+    return {
+      'position': 'absolute',
+      'top': (this.height*0.20)+'px',
+      'left': '16px',
+      'font-size': '25px',
+      'z-index': "2"
+    };
+  }
+
+  rightIconStyle():any{
+    return {
+      'position': 'absolute',
+      'top': (this.height*0.20)+'px',
+      'right': '16px',
+      'font-size': '25px',
+      'z-index': "2"
+    };
+  }
 
 
-   // background-image:url(../../../../assets/images/+slide.img)
+  videoStyle():any{
+    return {
+      'position': 'absolute',
+      'top':(this.height*0.30)+'px',
+      'left': '16px',
+      'font-size': '25px',
+      'z-index': "2"
+    };
+  }
+
+
+  viewsStyle():any{
+    return {
+      'position': 'absolute',
+      'top': (this.height*0.28)+'px',
+      'right': '16px',
+      'font-size': '25px',
+      'z-index': "2",
+      'width':'100px',
+      'height':'25px',
+      'background-color':'#dddddf',
+      'border-radius':'3px'
+    };
+  }
+
+  viewsText():any{
+    return {
+      'position': 'absolute',
+      'top': (this.height*0.28)+'px',
+      'right': '16px',
+      'font-size': '8px',
+      
+      'width':'100px',
+      'height':'25px',
+      "color": "black",
+    };
+
+  }
+
+ 
+
+
+
+  slidePrev() {
+    this.slides.slidePrev();
+  }
+  slideNext() {
+    this.slides.slideNext();
+  }
+
+  goToSlideIndex(index: number) {
+    this.slides.slideTo(index);
+  }
+
+  onRatingChange($event){
+
+  }
+
+  async gotoDetail(code:string){
+    this.router.navigateByUrl(`/tabs/market/productdetail/${code}/${this.category}`);
 }
-
-
-slidePrev() {
-  this.slides.slidePrev();
-}
-slideNext() {
-  this.slides.slideNext();
-}
-
 }

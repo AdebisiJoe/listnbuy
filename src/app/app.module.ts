@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AutoCompleteModule } from 'ionic4-auto-complete';
+// import { IonicRatingComponentModule } from 'ionic-rating-component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({

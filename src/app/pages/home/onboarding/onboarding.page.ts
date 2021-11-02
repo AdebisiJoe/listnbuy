@@ -52,7 +52,7 @@ export class OnboardingPage implements OnInit {
   async goNext() {
     let check = await this.slides.isEnd();
     if (check) {
-      this.router.navigate(['home']);
+      this.router.navigate(['start']);
     } else {
       this.slides.slideNext();
     }
@@ -65,7 +65,7 @@ export class OnboardingPage implements OnInit {
   }
 
   public skipBtn() {
-    this.router.navigate(['home']);
+    this.router.navigate(['start']);
   }
 
   getStyle(slide): any {
@@ -73,6 +73,27 @@ export class OnboardingPage implements OnInit {
       'background-image': `url(../../../../assets/images/${slide.img})`,
       height: this.height + 'px',
       width: this.width + 'px',
+    };
+  }
+
+
+  leftIconStyle():any{
+    return {
+      'position': 'absolute',
+      'top': (this.height*0.05)+'px',
+      'left': '16px',
+      'font-size': '25px',
+      'z-index': "2"
+    };
+  }
+
+  rightIconStyle():any{
+    return {
+      'position': 'absolute',
+      'top': (this.height*0.05)+'px',
+      'right': '16px',
+      'font-size': '25px',
+      'z-index': "2"
     };
   }
 }

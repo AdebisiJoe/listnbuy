@@ -44,7 +44,7 @@
       <ion-slides [options]="catSlideOpts">
         <ion-slide *ngFor="let v of vehicleArrays">
 
-          <ion-card style="width: 155px; height:280px">
+          <ion-card style="width: 155px; height:280px" (click)="gotoDetail(v.encoded_id)">
             <img
               [src]="v.image.small_image"
               style="width: 100%; height: 150px"
@@ -89,7 +89,7 @@
       <h3 class="ion-margin">Basic Ads</h3>
       <ion-slides [options]="catSlideOpts">
         <ion-slide *ngFor="let v of vehicleBasicArrays">
-          <ion-card style="width: 155px; height:280px">
+          <ion-card style="width: 155px; height:280px" (click)="gotoDetail(v.encoded_id)">
             <img
               [src]="v.image.small_image"
               style="width: 100%; height: 150px"

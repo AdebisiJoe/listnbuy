@@ -1,19 +1,10 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar color="light">
     <ion-buttons slot="start">
-      <ion-button fill="solid" shape="round" color="light" (click)="goBack()">
-        <ion-icon slot="icon-only" name="arrow-back" color="primary"></ion-icon>
-      </ion-button>
+      <ion-back-button color="primary"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ product?.advert.name }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button fill="solid" shape="round" color="light">
-        <ion-icon
-          slot="icon-only"
-          name="share-outline"
-          color="primary"
-        ></ion-icon>
-      </ion-button>
       <ion-button fill="solid" shape="round" color="light">
         <ion-icon
           slot="icon-only"
@@ -23,56 +14,35 @@
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
-</ion-header>
-
-<ion-content
-  [fullscreen]="true"
-  scrollEvents="true"
-  [appParallax]="img"
-  (ionScroll)="onScroll($event)"
->
-  <!-- <div class="grid" photoGalleryGroup>
-  <div class="grid-item" *ngFor="let image of slideImages" [photoGallery]="image.source"><img [src]="image.source" alt="" /></div>
-</div> -->
+</ion-header> -->
 
 
 
-  <div
-    style="
-      position: absolute;
-      top: 25%;
-      left: 16px;
-      font-size: 25px;
-      z-index: 2;
-    "
-    (click)="slidePrev()"
-  >
-    <ion-icon name="arrow-back" color="primary"></ion-icon>
+
+
+<!-- <ion-fab vertical="top" horizontal="start" slot="fixed">
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab> -->
+
+<ion-content [fullscreen]="true" scrollEvents="true">
+  <ion-buttons slot="start">
+    <ion-back-button color="primary"></ion-back-button>
+  </ion-buttons>
+  
+  <div (click)="slidePrev()" [ngStyle]="leftIconStyle()">
+    <ion-icon name="chevron-back" color="primary"></ion-icon>
   </div>
-  <div
-    style="
-      position: absolute;
-      top: 25%;
-      right: 16px;
-      font-size: 25px;
-      z-index: 2;
-    "
-    (click)="slideNext()"
-  >
-    <ion-icon name="arrow-forward" color="primary"></ion-icon>
+  <div [ngStyle]="rightIconStyle()" (click)="slideNext()">
+    <ion-icon name="chevron-forward" color="primary"></ion-icon>
   </div>
 
-  <!-- <div style="position: absolute;top:15%;right: 16px;font-size: 25px;z-index: 2;" >
-    <ion-icon name="expand" color="primary"></ion-icon>
-  </div> -->
-  <ion-slides
-    mode="ios"
-    pager="ios"
-    scrollbar="ios"
-    #mainSlides
-    pager="true"
-    photoGalleryGroup
-  >
+  <div (click)="slidePrev()" [ngStyle]="videoStyle()">
+    <ion-icon name="logo-youtube"></ion-icon>
+  </div>
+
+  <ion-slides mode="ios" pager="ios" #mainSlides pager="true" photoGalleryGroup>
     <ion-slide
       *ngFor="let slide of slideImages"
       [ngStyle]="getStyle(slide)"
@@ -97,10 +67,26 @@
       </div>
     </ion-slide>
   </ion-slides>
+
+  <ion-slides
+    mode="ios"
+    scrollbar="ios"
+    #thumbslides
+    [options]="thumbOpts"
+    style="margin-top: 5px"
+  >
+    <ion-slide
+      *ngFor="let slide of slideImages;let indexOfelement=index;"
+      [ngStyle]="getThumbnailStyle(slide)"
+      (click)="goToSlideIndex(indexOfelement)"
+    >
+    </ion-slide>
+  </ion-slides>
+  <p>{{ product?.advert.name }}</p>
   <ion-grid fixed>
     <ion-row>
       <ion-col size="6">
-        <p style="color: #030303; font-size: 20px; margin-top:0px">
+        <p style="color: #030303; font-size: 20px; margin-top: 0px">
           {{product?.advert.price_formatted}}
         </p>
         <p style="color: #166bfe; font-size: 10px; margin-top: -5px">
@@ -117,18 +103,63 @@
     </ion-row>
     <ion-row>
       <ion-col size="12">
-        <h4>{{category}} Details & Description:</h4>
+        <h4
+          class="ion-margin"
+          style="color: #241332; font-size: 16px; font-weight: bold"
+        >
+          {{category}} Details & Description:
+        </h4>
 
         <div
           class="ion-margin"
           style="
             border-style: solid;
             border-width: 0.5px;
-            height: 150px;
+            height: 200px;
             width: 90%;
+            border-radius: 5px;
           "
           *ngIf="category == 'vehicles'"
-        ></div>
+        >
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="4" class="ion-text-center">
+                <p style="font-size: 12px">Milage</p>
+                <p style="font-size: 10px">{{product?.advert.mileage}}</p>
+              </ion-col>
+              <ion-col size="4" class="ion-text-center">
+                <p style="font-size: 12px">Transmission</p>
+                <p style="font-size: 10px">
+                  {{product?.advert.transmission.name}}
+                </p>
+              </ion-col>
+              <ion-col size="4" class="ion-text-center">
+                <p style="font-size: 12px">Drive Type</p>
+                <p style="font-size: 10px">{{product?.advert.drive.name}}</p>
+              </ion-col>
+              <ion-col size="4" class="ion-text-center">
+                <p style="font-size: 12px">Body Style</p>
+                <p style="font-size: 10px">{{product?.advert.type.name}}</p>
+              </ion-col>
+              <ion-col size="4" class="ion-text-center">
+                <p style="font-size: 12px">Engine Size</p>
+                <p style="font-size: 10px">{{product?.advert.engine_size}}</p>
+              </ion-col>
+              <!-- <ion-col size="4" class="ion-text-center">
+              <p style="font-size: 12px;">Exterior</p>
+              <p style="font-size: 10px;">{{product?.advert.city.name}}</p>
+            </ion-col> -->
+              <ion-col size="4" class="ion-text-center">
+                <p style="font-size: 12px">VIN</p>
+                <p style="font-size: 10px">{{product?.advert.vin}}</p>
+              </ion-col>
+
+              <ion-col size="12" class="ion-margin-start">
+                <p style="font-size: 10px">{{product?.advert.description}}</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
 
         <div
           class="ion-margin"
@@ -162,10 +193,165 @@
           "
           *ngIf="category == 'general'"
         ></div>
+
+        <ion-col size="12"> </ion-col>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col> </ion-col>
+    <ion-row style="margin-top: -35px;">
+      <ion-col size="12">
+        <h4
+          class="ion-margin"
+          style="color: #241332; font-size: 16px; font-weight: bold"
+        >
+          Seller's Info
+        </h4>
+
+        <div
+          class="ion-margin"
+          style="
+            border-style: solid;
+            border-width: 0.5px;
+            height: 200px;
+            width: 90%;
+            border-radius: 5px;
+          "
+        >
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="6">
+                <ion-avatar>
+                  <img src="{{product?.seller.profile_picture.source}}" />
+                </ion-avatar>
+
+                <!-- <ion-avatar>
+              <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+            </ion-avatar>
+             -->
+
+                <p style="color: #241332; font-size: 12px; font-weight: bold">
+                  {{product?.seller.name}}
+                </p>
+                <ionic-rating-component
+                  #rating
+                  activeColor="#488aff"
+                  defaultColor="#f4f4f4"
+                  readonly="false"
+                  rating="5"
+                  fontSize="12px"
+                  (ratingChanged)="onRatingChange($event)"
+                >
+                </ionic-rating-component>
+
+                <div
+                  style="
+                    display: flex;
+                    flex-direction: row;
+                    /* justify-content: space-evenly; */
+                  "
+                >
+                  <ion-icon
+                    name="logo-facebook"
+                    style="margin-left: 3px"
+                  ></ion-icon>
+                  <ion-icon
+                    name="logo-twitter"
+                    style="margin-left: 5px"
+                  ></ion-icon>
+                  <ion-icon
+                    name="logo-instagram"
+                    style="margin-left: 5px"
+                  ></ion-icon>
+                </div>
+              </ion-col>
+              <ion-col size="6">
+                <ion-button
+                  expand="block"
+                  fill="outline"
+                  color="primary"
+                  style="font-size: 14px; text-transform: none"
+                >
+                  Seller Contact
+                </ion-button>
+
+                <ion-button
+                  expand="block"
+                  fill="solid"
+                  color="primary"
+                  style="font-size: 14px; text-transform: none"
+                >
+                  Make An Offer
+                </ion-button>
+
+                <ion-button
+                  expand="block"
+                  fill="outline"
+                  color="primary"
+                  style="font-size: 14px; text-transform: none"
+                >
+                  View Profile
+                </ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin-top: -20px;">
+      <ion-col size="12">
+        <h4
+          class="ion-margin"
+          style="color: #241332; font-size: 16px; font-weight: bold"
+        >
+          similar Ads
+        </h4>
+      </ion-col>
+      <ion-slides [options]="catSlideOpts">
+        <ion-slide *ngFor="let v of similarAds">
+          <ion-card
+            style="width: 155px; height: 280px"
+            (click)="gotoDetail(v.encoded_id)"
+          >
+            <img
+              [src]="v.image.small_image"
+              style="width: 100%; height: 150px"
+            />
+            <ion-card-header>
+              <div class="ion-text-start">
+                <p
+                  style="
+                    font-size: 14px;
+                    font-weight: bold;
+                    margin-top: -13px;
+                    color: #373535;
+                  "
+                >
+                  {{v.name}}
+                </p>
+              </div>
+            </ion-card-header>
+            <ion-card-content>
+              <div
+                class="ion-text-start"
+                style="margin-top: -20px; font-size: 10px"
+              >
+                <p style="font-size: 10px">{{v.state.name}}</p>
+                <p style="font-size: 10px">{{v.published_at_formatted}}</p>
+                <div
+                  style="
+                    background-color: #2a84f2;
+                    width: 54px;
+                    height: 19px;
+                    border-radius: 5px;
+                    padding-left: 4px;
+                  "
+                >
+                  <p style="color: #ffffff">{{v.price_formatted}}</p>
+                </div>
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-slide>
+      </ion-slides>
     </ion-row>
   </ion-grid>
 </ion-content>

@@ -1,5 +1,31 @@
-<ion-content class="background" [ngStyle]="getStyle()">
-<div  >
-  <p>hello</p>
-</div>
+<ion-content >
+
+  <div class="background-container">
+   <ion-grid fixed>
+     <ion-row>
+       <ion-col size="12">
+        <div class="ion-text-center">
+          <img
+            src="../../../../assets/images/logo.png"
+            style="width: 153px; height: 39px; margin-top: 45%"
+          />
+        </div>
+       </ion-col>
+       <ion-col size="12">
+        <div   class="ion-text-center"> 
+          <p style="font-size: 32px;font-weight: bold;color: #ffffff;margin-top: 50%">Welcome</p>
+        </div>
+       </ion-col>
+     </ion-row>
+   </ion-grid>
+
+
+   <div  class="ion-text-center"  style="position: absolute; top: 76%;left: 25%">
+    <ion-button (click)="goToChoiceScreen()" fill="solid" color="primary"  expand="block" shape="round" style="border-radius: 50px;height: 52px;">
+      GET STARTED
+      <ion-icon  name="arrow-forward" style="color: #ffffff;" ></ion-icon>
+    </ion-button>
+   </div>
+  </div>
+
 </ion-content>

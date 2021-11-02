@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { PhotoGalleryModule } from '@twogate/ngx-photo-gallery';
+import { IonicRatingComponentModule }   from 'ionic-rating-component';
 
 import { MarketsRoutingModule } from './markets-routing.module';
 import { CarsPage } from './cars/cars.page';
@@ -30,6 +31,7 @@ import { SharedDirectivesModule } from 'src/app/directives/shared-directives.mod
         indexIndicatorSep: '-',
       },
     }),
+    IonicRatingComponentModule,
   ],
   declarations: [
     CarsPage,

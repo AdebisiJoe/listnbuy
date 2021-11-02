@@ -17,7 +17,7 @@ export class MarketplacePage implements OnInit {
   vehicleArrays = [];
 
   vehicleBasicArrays = [];
-
+  category:string;
   catSlideOpts = {
     freeMode: true,
     slidesPerView: 2.2,
@@ -32,10 +32,19 @@ export class MarketplacePage implements OnInit {
     this.vehicleArrays = vehicleAdverts.data.premium_plus_ads;
     this.vehicleBasicArrays = vehicleAdverts.data.basic;
     console.log(vehicleAdverts.data.premium_plus_ads);
-    console.log(vehicleAdverts.data);
+    console.log(vehicleAdverts.data.gateway);
+    this.category=vehicleAdverts.data.gateway;
   }
 
   seeAll() {
     this.router.navigateByUrl(`/tabs/market/products/general`);
+  }
+
+  async gotoDetail(code:string){
+    
+    // const product = await this.productsAutoCompleteServiceService.productDetail(this.category,code)
+    // console.log(product);
+
+    this.router.navigateByUrl(`/tabs/market/productdetail/${code}/${this.category}`);
   }
 }

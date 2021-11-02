@@ -32,4 +32,8 @@ export class StartPage implements OnInit {
 
     // background-image:url(../../../../assets/images/+slide.img)
   }
+
+  goToChoiceScreen(){
+    this.router.navigate(['home']);
+  }
 }

@@ -6,3 +6,25 @@
 // ion-content.background {
 //   --background: url(./assets/images/startbc.png) no-repeat center;
 // }
+
+
+ion-content{
+    --ion-background-color:#fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.background-container{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    background: url('../../../../assets/images/startbc.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  
+  }
+  

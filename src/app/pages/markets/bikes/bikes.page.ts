@@ -14,7 +14,7 @@ export class BikesPage implements OnInit {
   vehicleArrays = [];
 
   vehicleBasicArrays = [];
-
+  category:string;
   catSlideOpts = {
     freeMode: true,
     slidesPerView: 2.2,
@@ -29,9 +29,15 @@ export class BikesPage implements OnInit {
     this.vehicleBasicArrays = vehicleAdverts.data.basic;
     console.log(vehicleAdverts.data.premium_plus_ads);
     console.log(vehicleAdverts.data);
+    this.category=vehicleAdverts.data.gateway;
   }
 
   seeAll() {
     this.router.navigateByUrl(`/tabs/market/products/bikes`);
+  }
+
+  async gotoDetail(code:string){
+  
+    this.router.navigateByUrl(`/tabs/market/productdetail/${code}/${this.category}`);
   }
 }
