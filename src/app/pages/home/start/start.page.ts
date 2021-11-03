@@ -34,6 +34,6 @@ export class StartPage implements OnInit {
   }
 
   goToChoiceScreen(){
-    this.router.navigate(['home']);
+    this.router.navigate(['startchoice']);
   }
 }

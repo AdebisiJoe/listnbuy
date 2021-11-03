@@ -1,0 +1,54 @@
+<ion-toolbar>
+
+
+  <div class="ion-text-center">
+    <img
+      src="../../../../assets/images/logo.png"
+      style="width: 153px; height: 39px; margin-top: 20px"
+    />
+  </div>
+
+</ion-toolbar>
+
+<ion-content>
+  <ion-grid fixed>
+
+    <ion-row  style="margin-top:30px;">
+      <ion-col size="6">
+        <div class="ion-text-center">
+
+          <p  style="color: #5E95D8;">SELLER</p>
+          <ion-button (click)="goToLoginScreen()"  fill="solid" color="primary"  expand="block" shape="round" style="border-radius: 50px;height: 44px;width:125px;">
+            LOGIN
+          </ion-button>
+        </div>     
+
+      </ion-col>
+      <ion-col size="6">
+        <div>
+          <img src="../../../../assets/images/duck-trans1.png" alt="" srcset="">
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row style="margin-top:70px;">
+      <ion-col size="6">
+
+        
+        <div>
+          <img src="../../../../assets/images/duck-trans2.png" alt="" srcset="">
+        </div>
+
+      </ion-col>
+      <ion-col size="6">
+        <div class="ion-text-center">
+
+          <p style="color: #5E95D8;">BUYER</p>
+          <ion-button (click)="goToHomeScreen()" fill="solid" color="primary"  expand="block" shape="round" style="border-radius: 50px;height: 44px;width:125px;">
+            SKIP
+          </ion-button>
+        </div>  
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

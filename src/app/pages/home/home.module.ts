@@ -12,6 +12,8 @@ import { HomepagePage } from './homepage/homepage.page';
 import { OnboardingPage } from './onboarding/onboarding.page';
 import { PrivacypolicyPage } from './privacypolicy/privacypolicy.page';
 import { TermsandconditionPage } from './termsandcondition/termsandcondition.page';
+import { StartPage } from './start/start.page';
+import { StartchoicePage } from './startchoice/startchoice.page'
 
 import { SharedDirectivesModule } from '../../directives/shared-directives.module';
 @NgModule({
@@ -29,7 +31,9 @@ import { SharedDirectivesModule } from '../../directives/shared-directives.modul
     HomepagePage,
     OnboardingPage,
     PrivacypolicyPage,
-    TermsandconditionPage
+    TermsandconditionPage,
+    StartPage,
+    StartchoicePage
   ]
 })
 export class HomeModule {}

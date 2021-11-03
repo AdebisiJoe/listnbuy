@@ -40,7 +40,8 @@ const routes: Routes = [
   {
     path: 'loginmodal',
     loadChildren: () => import('./components/loginmodal/loginmodal.module').then( m => m.LoginmodalPageModule)
-  }
+  },
+  
 ];
 
 @NgModule({
