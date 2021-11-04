@@ -28,7 +28,7 @@
       </div>
     </div> -->
 
-  <div (click)="goBack()" [ngStyle]="leftIconStyle()">
+  <div (click)="goBack()" [ngStyle]="leftIconStyle()" >
     <ion-icon name="chevron-back" color="primary"></ion-icon>
   </div>
   <div [ngStyle]="rightIconStyle()" (click)="skipBtn()">
@@ -44,11 +44,8 @@
     </ion-button>
   </ion-fab>
 
-  <ion-slides pager="true" #mainSlides>
-    <!-- class="bg"
-        style="background-image: url(../../../../assets/images/startbc.jpg)"  slide?.img  -->
-
-    <ion-slide *ngFor="let slide of onBoardSlides" [ngStyle]="getStyle(slide)">
+  <ion-slides pager="true" #mainSlides (ionSlidesDidLoad)="afterslidesLoad(mainSlides)" [options]="slideOptsOne">
+    <ion-slide *ngFor="let slide of onBoardSlides" [ngStyle]="getStyle(slide)" >
       <div class="onb-desc ion-text-center">
         <h4 class="ion-text-capitalize ion-no-margin">{{slide.desc}}</h4>
         <!-- <p class="ion-no-margin">{{slide.desc}}</p> -->

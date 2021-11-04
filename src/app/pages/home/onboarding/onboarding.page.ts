@@ -15,6 +15,13 @@ export class OnboardingPage implements OnInit {
   public onBoardSlides = [];
   @ViewChild('mainSlides', { static: true }) slides: IonSlides;
 
+  slideOptsOne = {
+    initialSlide: 0,
+    slidesPerView: 1,
+    autoplay:true,
+    speed:200
+   };
+
   constructor(private router: Router, platform: Platform) {
     platform.ready().then(() => {
       console.log('Width: ' + platform.width());
@@ -48,7 +55,9 @@ export class OnboardingPage implements OnInit {
       },
     ];
   }
-
+  afterslidesLoad(slides) {
+    slides.startAutoplay();
+  }
   async goNext() {
     let check = await this.slides.isEnd();
     if (check) {
