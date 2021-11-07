@@ -16,13 +16,18 @@ import { StartPage } from './start/start.page';
 import { StartchoicePage } from './startchoice/startchoice.page'
 
 import { SharedDirectivesModule } from '../../directives/shared-directives.module';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     HomeRoutingModule,
-    SharedDirectivesModule
+    SharedDirectivesModule,
+    FontAwesomeModule
+
   ],
   declarations: [
     AboutusPage,
@@ -33,7 +38,10 @@ import { SharedDirectivesModule } from '../../directives/shared-directives.modul
     PrivacypolicyPage,
     TermsandconditionPage,
     StartPage,
-    StartchoicePage
+    StartchoicePage,
   ]
 })
-export class HomeModule {}
+export class HomeModule {
+
+  
+}

@@ -115,7 +115,7 @@
           style="
             border-style: solid;
             border-width: 0.5px;
-            height: 200px;
+            height: 220px;
             width: 90%;
             border-radius: 5px;
           "
@@ -124,25 +124,25 @@
           <ion-grid fixed>
             <ion-row>
               <ion-col size="4" class="ion-text-center">
-                <p style="font-size: 12px">Milage</p>
+                <p style="font-size: 12px;font-weight: bold;">Milage</p>
                 <p style="font-size: 10px">{{product?.advert.mileage}}</p>
               </ion-col>
               <ion-col size="4" class="ion-text-center">
-                <p style="font-size: 12px">Transmission</p>
+                <p style="font-size: 12px;font-weight: bold;">Transmission</p>
                 <p style="font-size: 10px">
                   {{product?.advert.transmission.name}}
                 </p>
               </ion-col>
               <ion-col size="4" class="ion-text-center">
-                <p style="font-size: 12px">Drive Type</p>
+                <p style="font-size: 12px;font-weight: bold;">Drive Type</p>
                 <p style="font-size: 10px">{{product?.advert.drive.name}}</p>
               </ion-col>
               <ion-col size="4" class="ion-text-center">
-                <p style="font-size: 12px">Body Style</p>
+                <p style="font-size: 12px;font-weight: bold;">Body Style</p>
                 <p style="font-size: 10px">{{product?.advert.type.name}}</p>
               </ion-col>
               <ion-col size="4" class="ion-text-center">
-                <p style="font-size: 12px">Engine Size</p>
+                <p style="font-size: 12px;font-weight: bold;">Engine Size</p>
                 <p style="font-size: 10px">{{product?.advert.engine_size}}</p>
               </ion-col>
               <!-- <ion-col size="4" class="ion-text-center">
@@ -150,18 +150,19 @@
               <p style="font-size: 10px;">{{product?.advert.city.name}}</p>
             </ion-col> -->
               <ion-col size="4" class="ion-text-center">
-                <p style="font-size: 12px">VIN</p>
+                <p style="font-size: 12px;font-weight: bold;">VIN</p>
                 <p style="font-size: 10px">{{product?.advert.vin}}</p>
               </ion-col>
 
               <ion-col size="12" class="ion-margin-start">
+                <p style="font-size: 12px;font-weight: bold;">Descrption</p>
                 <p style="font-size: 10px">{{product?.advert.description}}</p>
               </ion-col>
             </ion-row>
           </ion-grid>
         </div>
 
-        <div
+        <!-- <div
           class="ion-margin"
           style="
             border-style: solid;
@@ -170,9 +171,10 @@
             width: 90%;
           "
           *ngIf="category == 'bikes'"
-        ></div>
+        >
+      </div> -->
 
-        <div
+        <!-- <div
           class="ion-margin"
           style="
             border-style: solid;
@@ -181,9 +183,9 @@
             width: 90%;
           "
           *ngIf="category == 'parts'"
-        ></div>
+        ></div> -->
 
-        <div
+        <!-- <div
           class="ion-margin"
           style="
             border-style: solid;
@@ -192,7 +194,7 @@
             width: 90%;
           "
           *ngIf="category == 'general'"
-        ></div>
+        ></div> -->
 
         <ion-col size="12"> </ion-col>
       </ion-col>

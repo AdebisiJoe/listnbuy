@@ -140,7 +140,7 @@ export class ProductdetailPage implements OnInit {
   getStyle(slide): any {
     return {
       'background-image': `url(${slide.source})`,
-      height: (this.height*0.25)+'px',
+      height: (this.height*0.35)+'px',
       width: this.width + 'px',
       'background-size': 'cover',
       'background-repeat': 'no-repeat',
