@@ -1,13 +1,72 @@
-<ion-page>
-
-
-  <ion-header>
+  <!-- <ion-header>
     <ion-toolbar>
-      <ion-title>login</ion-title>
+      <ion-title>Register</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
   
   <ion-content>
-  
+    <div class="background-container">
+      
+        <div class="ion-text-center"  style="margin-top:450px">
+          <img
+            src="../../../../assets/images/logo.png"
+            style="width: 153px; height: 39px;"
+          />
+        </div>
+
+        <ion-grid style="background-color: #ffffff;margin-top:10%;box-shadow: 0px 5px #DDDDDD;" fixed>
+          <ion-row >
+            <ion-col size="12"  >
+              <div   class="ion-text-center"> 
+                <p style="font-size: 24px;color: #000000;">Login</p>
+              </div>
+             </ion-col>
+             <ion-col size="12"  style="margin-top: -10px;">
+            
+              
+              <ion-item>
+                <ion-label position="floating">Email</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              
+              <ion-item>
+                <ion-label position="floating">password</ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+
+              <ion-button style="margin-top: 10px;" expand="block">LOGIN</ion-button>
+             </ion-col>
+          </ion-row>
+        </ion-grid>
+
+        <ion-grid>
+         
+          <div class="ion-text-center">
+            <p style="font-size: 20px;">-OR-</p>
+          </div>
+
+          <ion-row style="background-color: #ffffff;">
+          
+            <ion-col>
+              <ion-button  fill="outline" color="light"  expand="block" shape="round" >
+                
+                <ion-icon name="logo-facebook" style="color:blue;" ></ion-icon>
+                 <p style="color: black;">Continue with Facebook</p> 
+              </ion-button>
+            </ion-col>
+
+            <ion-col>
+              <ion-button  fill="outline" color="light"  expand="block" shape="round" >
+                 <ion-icon name="logo-google" style="color:blue;" ></ion-icon>
+                 <p style="color: black;">Continue with Google</p>
+              </ion-button>
+            </ion-col>
+
+           
+          </ion-row>
+        </ion-grid>
+         
+      
+    </div>
   </ion-content>
-</ion-page>
+

@@ -16,7 +16,7 @@ export class StartchoicePage implements OnInit {
 
 
   goToLoginScreen(){
-    this.router.navigate(['login']);
+    this.router.navigate(['/auth/login']);
   }
 
   goToHomeScreen(){
