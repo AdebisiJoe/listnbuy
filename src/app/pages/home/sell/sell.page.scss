@@ -1,0 +1,35 @@
+.avatarimage{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+
+
+}
+
+.infobox{
+    width: 95%;
+    height: 150px;
+    border: 2px solid;
+    border-color: #2A84F2;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+
+    .buttomofbox{
+     height: 48px;
+     background-color: #2A84F2;
+     width: 100%;
+    }
+    .infocircle{
+        height: 53px;
+        width:53px;
+        background-color: #2A84F2;
+        border-radius: 29px;
+        margin-top: 5px;
+    }
+    .infotext{
+        font-size: 14px;
+    }
+}
