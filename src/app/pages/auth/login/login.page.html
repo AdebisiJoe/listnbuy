@@ -26,15 +26,15 @@
               
               <ion-item>
                 <ion-label position="floating">Email</ion-label>
-                <ion-input></ion-input>
+                <ion-input  [(ngModel)]="email"></ion-input>
               </ion-item>
               
               <ion-item>
                 <ion-label position="floating">password</ion-label>
-                <ion-input></ion-input>
+                <ion-input type="password"  [(ngModel)]="password"></ion-input>
               </ion-item>
 
-              <ion-button style="margin-top: 10px;" expand="block">LOGIN</ion-button>
+              <ion-button style="margin-top: 10px;" expand="block" (click)="loginUser()">LOGIN</ion-button>
              </ion-col>
           </ion-row>
         </ion-grid>

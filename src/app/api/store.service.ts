@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as Crypto from "crypto-js";
 import { EncryptionService } from './encryption.service';
+import { Storage } from '@capacitor/storage';
+import { async } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -15,34 +17,27 @@ export class StoreService {
 
   }
 
-  // encryptText(text: string) {
-  //   return Crypto.AES.encrypt(text, this.encryptionKey).toString();
-  // }
 
-  // decryptText(encrypted: string) {
-  //   let dec = Crypto.AES.decrypt(encrypted, this.encryptionKey);
-  //   return dec.toString(Crypto.enc.Utf8);
-  // }
-
-  saveUser = (user: any) => {
+  saveUser =async (user: any) => {
     if (user) {
       this.user = user;
-      localStorage.setItem("user", JSON.stringify(user));
+      await Storage.set({key:"user", value:JSON.stringify(user)});
     }
   }
 
-  saveAuth = (auth: string) => {
+  saveAuth = async(auth: string) => {
     this.auth = auth;
     const secureAuth = this.crypto.encryptText(auth);
-    localStorage.setItem("auth", secureAuth);
+    await Storage.set({key:"auth", value:secureAuth});
   }
 
-  getUser = () => {
+  getUser = async () => {
     if (!this.user) {
-      const userStr = localStorage.getItem("user");
+     
+      const { value } = await Storage.get({ key: 'user' });
       try {
-        if (userStr) {
-          this.user = JSON.parse(userStr);
+        if (value) {
+          this.user = JSON.parse(value);
         }
       }
       catch (err) {
@@ -52,12 +47,27 @@ export class StoreService {
     return this.user;
   }
 
-  getAuth = () => {
+  getAuth = async() => {
     if (!this.auth) {
-      const secureAuth = localStorage.getItem("auth");
-      this.auth = this.crypto.decryptText(secureAuth);
+    
+      const { value } = await Storage.get({ key: 'auth' });
+      this.auth = this.crypto.decryptText(value);
     }
     return this.auth
+  }
+
+  remove=async(key:string)=>{
+    await Storage.remove({ key: key });
+  }
+
+  save=async(key:string,data:any)=>{
+    await Storage.set({key:key, value:JSON.stringify(data)});
+  }
+
+  get=async(key:string)=>{
+    const { value } = await Storage.get({ key: key });
+
+    return value;
   }
 
 }

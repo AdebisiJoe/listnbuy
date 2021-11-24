@@ -8,6 +8,7 @@ import { VehiclepartsPage } from './vehicleparts/vehicleparts.page';
 import { DetailsPage } from './details/details.page';
 import { ProductsPage } from './products/products.page';
 import { ProductdetailPage } from './productdetail/productdetail.page';
+import { SellerprofilePage } from '../markets/sellerprofile/sellerprofile.page';
 
 const routes: Routes = [
   {
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'productdetail/:productcode/:category',
     component:ProductdetailPage
+  },
+  {
+    path: 'sellerprofile/:user_encoded_id',
+    component:SellerprofilePage
   },
 ];
 

@@ -82,10 +82,10 @@
     >
     </ion-slide>
   </ion-slides>
-  <p>{{ product?.advert.name }}</p>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="6">
+  <p class="ion-margin" style="color: #241332; font-size: 16px; font-weight: bold" >{{ product?.advert.name }}</p>
+  <ion-grid fixed >
+    <ion-row class="ion-margin">
+      <ion-col size="6" >
         <p style="color: #030303; font-size: 20px; margin-top: 0px">
           {{product?.advert.price_formatted}}
         </p>
@@ -107,7 +107,7 @@
           class="ion-margin"
           style="color: #241332; font-size: 16px; font-weight: bold"
         >
-          {{category}} Details & Description:
+          {{category | titlecase}} Details & Description:
         </h4>
 
         <div
@@ -213,7 +213,7 @@
           style="
             border-style: solid;
             border-width: 0.5px;
-            height: 200px;
+            height: 220px;
             width: 90%;
             border-radius: 5px;
           "
@@ -271,9 +271,22 @@
                   fill="outline"
                   color="primary"
                   style="font-size: 14px; text-transform: none"
+                  *ngIf="sellerdetailshown==false"
+                  (click)="showsellercontactbutton()"
                 >
                   Seller Contact
                 </ion-button>
+
+                <div class="sellercontact" (click)="showsellercontactbutton()" *ngIf="sellerdetailshown">
+      
+                  <div>
+                    <p><ion-icon name="mail-outline" color="primary"></ion-icon>{{product?.seller.email}}</p>
+                  </div>
+                  <div>
+                    <p><ion-icon name="call-outline" color="primary"></ion-icon>  {{product?.seller.phone}}</p>
+                  </div>
+
+                </div>
 
                 <ion-button
                   expand="block"
@@ -289,6 +302,7 @@
                   fill="outline"
                   color="primary"
                   style="font-size: 14px; text-transform: none"
+                  (click)="gotoSellerProfile()"
                 >
                   View Profile
                 </ion-button>

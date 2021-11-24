@@ -28,6 +28,8 @@ export class ProductdetailPage implements OnInit {
   category: string;
   productcode: string;
   data = null;
+  user_encoded_id:string;
+
 
   slideImages = [];
 
@@ -62,6 +64,8 @@ export class ProductdetailPage implements OnInit {
   product: any;
   seller:any;
   similarAds=[];
+  sellercontactbutton:boolean=false;
+  sellerdetailshown:boolean=false;
 
   catSlideOpts = {
     freeMode: true,
@@ -99,6 +103,8 @@ export class ProductdetailPage implements OnInit {
 
     this.similarAds = advert.data.similar_ads;
     console.log(this.slideImages);
+    this.seller=advert.data.seller;
+    this.user_encoded_id=this.seller.encoded_id;
   }
 
   onScroll(ev) {
@@ -241,6 +247,16 @@ export class ProductdetailPage implements OnInit {
   }
 
   async gotoDetail(code:string){
-    this.router.navigateByUrl(`/tabs/market/productdetail/${code}/${this.category}`);
-}
+     this.router.navigateByUrl(`/tabs/market/productdetail/${code}/${this.category}`);
+  }
+ 
+ async gotoSellerProfile(){
+  this.router.navigateByUrl(`/tabs/market/sellerprofile/${this.user_encoded_id}`);
+ }
+
+ showsellercontactbutton(){
+  this.sellercontactbutton=!this.sellercontactbutton;
+  this.sellerdetailshown=!this.sellerdetailshown;
+ }
+
 }
