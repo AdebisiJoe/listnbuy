@@ -39,50 +39,44 @@
       <div class="ion-text-center" *ngIf="!vehicleArrays">
         <ion-spinner color="primary"></ion-spinner>
       </div>
+
       <ion-slides [options]="catSlideOpts">
         <ion-slide *ngFor="let v of vehicleArrays">
-          <ion-card style="width: 155px; height: 280px"  (click)="gotoDetail(v.encoded_id)">
-            <img
-              [src]="v.image.small_image"
-              style="width: 100%; height: 150px"
-            />
-            <ion-card-header>
+        
+          <div class="advertcard" (click)="gotoDetail(v.encoded_id)">
+           
+            <div class="imagecontainer">
+
+              <div class="ribbon ribbon-top-left">
+                <span class={{v.title_status.name}}>{{v.title_status.name}}</span>
+              </div>
+              <img
+                [src]="v.image.small_image"
+                class="advertthumbnail"
+              />
+              <div  class="{{v.condition.name}}" [ngClass]="['Badge',]">{{v.condition.name}}</div>
+            </div>
               <div class="ion-text-start">
-                <p
-                  style="
-                    font-size: 14px;
-                    font-weight: bold;
-                    margin-top: -13px;
-                    color: #373535;
-                  "
-                >
-                  {{v.name}}
-                </p>
+                <p  class="productnametext">{{v.name}}</p>
               </div>
-            </ion-card-header>
-            <ion-card-content>
-              <div
-                class="ion-text-start"
-                style="margin-top: -20px; font-size: 10px"
+
+              <div class="ion-text-start"
+                  style="margin-top: -20px; font-size: 10px;
+                  margin-left: 5px;"
               >
-                <p style="font-size: 10px">{{v.state.name}}</p>
-                <p style="font-size: 10px">{{v.published_at_formatted}}</p>
-                <div
-                  style="
-                    background-color: #2a84f2;
-                    width: 54px;
-                    height: 19px;
-                    border-radius: 5px;
-                    padding-left: 4px;
-                  "
-                >
-                  <p style="color: #ffffff">{{v.price_formatted}}</p>
-                </div>
+                <p><ion-icon name="location-outline"></ion-icon> {{v.state.name}}</p>
+                <p><ion-icon name="alarm-outline"></ion-icon>{{v.published_at_formatted}}</p>
               </div>
-            </ion-card-content>
-          </ion-card>
+
+            <div  class="ion-text-start" style="margin-left: 5px;">
+              <p style="color: #2a84f2">{{v.price_formatted}}</p>
+            </div>
+
+          </div> 
+
         </ion-slide>
       </ion-slides>
+      
       
       <h5 class="ion-margin" style="color: #0174f5" (click)="seeAll()">See All</h5>
     </ion-col>
@@ -91,46 +85,28 @@
       <h3 class="ion-margin">Basic Ads</h3>
       <ion-slides [options]="catSlideOpts">
         <ion-slide *ngFor="let v of vehicleBasicArrays">
-          <ion-card style="width: 155px; height: 280px"  (click)="gotoDetail(v.encoded_id)">
+          <div class="advertcard" (click)="gotoDetail(v.encoded_id)">
             <img
-              [src]="v.image.small_image"
-              style="width: 100%; height: 150px"
+            [src]="v.image.small_image"
+            class="advertthumbnail"
             />
-            <ion-card-header>
-              <div class="ion-text-start">
-                <p
-                  style="
-                    font-size: 14px;
-                    font-weight: bold;
-                    margin-top: -13px;
-                    color: #373535;
-                  "
-                >
-                  {{v.name}}
-                </p>
-              </div>
-            </ion-card-header>
-            <ion-card-content>
-              <div
-                class="ion-text-start"
-                style="margin-top: -20px; font-size: 10px"
-              >
-                <p style="font-size: 10px">{{v.state.name}}</p>
-                <p style="font-size: 10px">{{v.published_at_formatted}}</p>
-                <div
-                  style="
-                    background-color: #2a84f2;
-                    width: 54px;
-                    height: 19px;
-                    border-radius: 5px;
-                    padding-left: 4px;
-                  "
-                >
-                  <p style="color: #ffffff">{{v.price_formatted}}</p>
-                </div>
-              </div>
-            </ion-card-content>
-          </ion-card>
+            <div class="ion-text-start">
+              <p  class="productnametext">{{v.name}}</p>
+            </div>
+
+            <div class="ion-text-start"
+                style="margin-top: -20px; font-size: 10px;
+                margin-left: 5px;"
+            >
+              <p><ion-icon name="location-outline"></ion-icon> {{v.state.name}}</p>
+              <p><ion-icon name="alarm-outline"></ion-icon>{{v.published_at_formatted}}</p>
+            </div>
+
+          <div  class="ion-text-start" style="margin-left: 5px;">
+            <p style="color: #2a84f2">{{v.price_formatted}}</p>
+          </div>
+
+        </div> 
         </ion-slide>
       </ion-slides>
       <div class="ion-text-center" *ngIf="!vehicleArrays">

@@ -3,3 +3,116 @@
     align-items: center;
     justify-content: center;
 }
+
+
+.advertcard{
+    width:155px;
+    height:280px;
+    display:flex;
+    flex-direction:column;
+    border-radius:4px;
+    margin: 5px;
+    box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
+    background-color: #fff;
+    .imagecontainer{
+        .advertthumbnail{
+            width: 100%; 
+            height: 150px;
+        }
+
+        /* Ribbon */
+        .ribbon {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            position: absolute;
+            z-index: 1;
+
+            span {
+                position: absolute;
+                display: block;
+                width: 220px;
+                padding: 7px 0;
+                color: #fff;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+                text-align: center;
+                font-weight: bold;
+                font-size: 65%;
+                font-size: max(9px, 60%);
+                letter-spacing: 0.01em;
+                background-color: #2A84F2;
+            }
+            span.Clear {
+                background-color: #2A84F2;
+            }
+            span.Missing {
+                background-color: #92b115;
+            }
+            span.Salvage {
+                background-color: #d9a214;
+            }
+            span.Refurbished {
+                background-color: #00b9dc;
+            }
+            span.Parts {
+                background-color: #8eba13;
+            }
+        }
+
+        /* top left*/
+        .ribbon-top-left::before {
+            top: 0;
+            right: 0;
+        }
+        .ribbon-top-left::after {
+            bottom: 0;
+            left: 0;
+        }
+        .ribbon-top-left {
+            span {
+                right: -44px;
+                top: 20px;
+                transform: rotate(-45deg);
+            }
+        }
+
+        /* Badge */
+        .Badge {
+            position: absolute;
+            right: 8px;
+            z-index: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 6.5px;
+            background: #ffffff;
+            border-radius: 4px;
+            top: 10.5rem;
+            font-weight: bold;
+            font-size: 10px;
+            line-height: 12px;
+            letter-spacing: -0.045em;
+            color: var(--light-dark-color);
+        }
+
+        .Used {
+            background: var(--primary-color);
+            color: #ffffff;
+        }
+
+    }
+    .productnametext{
+        font-size: 12px;
+        font-weight: bold;
+        margin-top:7px;
+        color: #373535;
+        margin-left: 5px;
+    }
+
+    .buttomofbox{
+        height: 48px;
+        background-color: #2A84F2;
+        width: 100%;
+        margin-left: 5px;
+    }
+}

@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>sellerprofile</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button color="primary"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Seller's Profile</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -9,9 +12,19 @@
   <ion-grid fixed>
     <ion-row>
       <ion-col size="12" class="avatar">
-        <ion-avatar>
+        <!-- <ion-avatar >
           <img [src]="profileimage" />
+        </ion-avatar> -->
+
+        <ion-avatar *ngIf="profileData?.info.profile_picture?.source">
+          <img src="{{profileData?.info.profile_picture?.source}}" />
         </ion-avatar>
+
+        
+
+    <ion-avatar *ngIf="!profileData?.info.profile_picture?.source">
+      <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-avatar>
        
       </ion-col>
       <ion-col size="12" class="ion-text-center">
@@ -30,8 +43,14 @@
       </ionic-rating-component> -->
       </ion-col>
 
-      <ion-col size="12">
-        <h3 class="ion-margin">Seller's Review</h3>
+      <ion-col size="12" *ngIf="reviews.length==0">
+        <h3 class="ion-margin">Seller's Reviews</h3>
+         <p class="ion-margin">Seller has no Reviews</p>
+
+      </ion-col>
+
+      <ion-col size="12" *ngIf="reviews.length>0">
+        <h3 class="ion-margin">Seller's Reviews</h3>
         <ion-slides [options]="catSlideOpts">
           <ion-slide *ngFor="let v of reviews">
             
@@ -67,49 +86,31 @@
       </ion-col>
 
       <ion-col  size="12">
-        <h3 class="ion-margin">Seller Ads</h3>
-        <ion-slides [options]="catSlideOpts">
+        <h3 class="ion-margin">Seller's Ads</h3>
+        <ion-slides [options]="catSlideOpts2">
           <ion-slide *ngFor="let v of adverts">
-            <ion-card style="width: 155px; height: 280px"  (click)="gotoDetail(v.encoded_id)">
+            <div class="advertcard" (click)="gotoDetail(v.encoded_id)">
               <img
-                [src]="v.image.small_image"
-                style="width: 100%; height: 150px"
-              />
-              <ion-card-header>
-                <div class="ion-text-start">
-                  <p
-                    style="
-                      font-size: 14px;
-                      font-weight: bold;
-                      margin-top: -13px;
-                      color: #373535;
-                    "
-                  >
-                    {{v.name}}
-                  </p>
-                </div>
-              </ion-card-header>
-              <ion-card-content>
-                <div
-                  class="ion-text-start"
-                  style="margin-top: -20px; font-size: 10px"
-                >
-                  <p style="font-size: 10px">{{v.state.name}}</p>
-                  <p style="font-size: 10px">{{v.published_at_formatted}}</p>
-                  <div
-                    style="
-                      background-color: #2a84f2;
-                      width: 54px;
-                      height: 19px;
-                      border-radius: 5px;
-                      padding-left: 4px;
-                    "
-                  >
-                    <p style="color: #ffffff">{{v.price_formatted}}</p>
-                  </div>
-                </div>
-              </ion-card-content>
-            </ion-card>
+              [src]="v.image.small_image"
+              class="advertthumbnail"
+            />
+              <div class="ion-text-start">
+                <p  class="productnametext">{{v.name}}</p>
+              </div>
+
+              <div class="ion-text-start"
+                  style="margin-top: -20px; font-size: 10px;
+                  margin-left: 5px;"
+              >
+                <p><ion-icon name="location-outline"></ion-icon> {{v.state.name}}</p>
+                <p><ion-icon name="alarm-outline"></ion-icon>{{v.published_at_formatted}}</p>
+              </div>
+
+            <div  class="ion-text-start" style="margin-left: 5px;">
+              <p style="color: #2a84f2">{{v.price_formatted}}</p>
+            </div>
+
+          </div> 
           </ion-slide>
         </ion-slides>
       </ion-col>

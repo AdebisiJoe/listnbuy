@@ -22,6 +22,13 @@ export class SellerprofilePage implements OnInit {
     slidesOffsetBefore: 11,
     spaceBetween: 1,
   };
+
+  catSlideOpts2 = {
+    freeMode: true,
+    slidesPerView: 2.2,
+    slidesOffsetBefore: 11,
+    spaceBetween: 1,
+  };
   constructor(    
     private router: Router,
     private route: ActivatedRoute,
@@ -33,7 +40,7 @@ export class SellerprofilePage implements OnInit {
     console.log(this.user_encoded_id);
     this.profile=await this.userService.getUserProfile(this.user_encoded_id);
     console.log(this.profile.data);
-    this.profileimage=this.profile.data.info.profile_picture.source;
+    this.profileimage=this.profile?.data.info.profile_picture?.source;
     this.profileData=this.profile.data;
     this.adverts=this.profile.data.adverts;
     this.reviews=this.profile.data.reviews;

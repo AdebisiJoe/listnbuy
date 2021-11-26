@@ -15,3 +15,43 @@ ion-icon {
    
 }
 
+.avatarimage{
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+
+
+}
+
+.infobox{
+    width: 90%;
+    height: 120px;
+    border: 2px solid;
+    border-color: #0174f5;
+    margin-top: 10px;
+    margin-left: 2%;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    background-color: #0174f5;
+    // .buttomofbox{
+    //  height: 48px;
+    //  background-color: #0174f5;
+    //  width: 100%;
+    //  border-radius: 5px;
+    // }
+    .infocircle{
+        height: 53px;
+        width:53px;
+        background-color: #0174f5;
+        border-radius: 29px;
+        margin-top: 5px;
+    }
+    .infotext{
+        font-size: 14px;
+        margin-top: 10px;
+    }
+}
+

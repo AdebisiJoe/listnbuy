@@ -1,0 +1,316 @@
+.Advert {
+    filter: drop-shadow(0px 4px 7px rgba(0, 0, 0, 0.1));
+    border-radius: 0px;
+    border: none;
+    //  overflow: hidden;
+    max-width: 150px;
+
+    &:hover {
+        transform: scale(1.05);
+
+        transition: transform ease-in-out 0.3s;
+        .ImageContainer {
+            img {
+                transform: scale(1.15);
+                transition: transform ease-in-out 0.4s;
+            }
+        }
+    }
+
+    .ImageContainer {
+        //   display: contents;
+        border-radius: 0px;
+        position: relative;
+        overflow: hidden;
+
+        img {
+            border-radius: 0px;
+            width: 100%;
+            height: 9.5em;
+            min-height: 165px;
+            display: flex;
+            object-fit: cover;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Ribbon */
+        .ribbon {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            position: absolute;
+            z-index: 1;
+
+            span {
+                position: absolute;
+                display: block;
+                width: 225px;
+                padding: 7px 0;
+                color: #fff;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+                text-align: center;
+                font-weight: bold;
+                font-size: 65%;
+                font-size: max(9px, 60%);
+                letter-spacing: 0.01em;
+                background-color: var(--primary-color);
+            }
+            span.Clear {
+                background-color: var(--primary-color);
+            }
+            span.Missing {
+                background-color: #92b115;
+            }
+            span.Salvage {
+                background-color: #d9a214;
+            }
+            span.Refurbished {
+                background-color: #00b9dc;
+            }
+            span.Parts {
+                background-color: #8eba13;
+            }
+        }
+
+        /* top left*/
+        .ribbon-top-left::before {
+            top: 0;
+            right: 0;
+        }
+        .ribbon-top-left::after {
+            bottom: 0;
+            left: 0;
+        }
+        .ribbon-top-left {
+            span {
+                right: -44px;
+                top: 20px;
+                transform: rotate(-45deg);
+            }
+        }
+
+        /* Badge */
+        .Badge {
+            position: absolute;
+            right: 8px;
+            z-index: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 6.5px;
+            background: #ffffff;
+            border-radius: 4px;
+            top: 10.5rem;
+            font-weight: bold;
+            font-size: 10px;
+            line-height: 12px;
+            letter-spacing: -0.045em;
+            color: var(--light-dark-color);
+        }
+
+        .Used {
+            background: var(--primary-color);
+            color: #ffffff;
+        }
+    }
+
+    .ImageContainer:before {
+        content: "";
+        display: block;
+        position: absolute;
+        background: rgba(22, 41, 70, 0.1);
+        border-radius: 0px;
+        width: 100%;
+        height: 100%;
+        right: 0;
+        top: 0;
+        z-index: 1;
+    }
+
+    .Image:hover {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        -webkit-transition: 0.3s ease-in-out;
+        transition: 0.3s ease-in-out;
+    }
+
+    .Content {
+        background: #ffffff;
+        border-radius: 0px;
+        z-index: 10;
+        position: relative;
+        top: -23px;
+        margin-bottom: -1.9rem;
+        display: flex;
+        flex-direction: column;
+        padding-top: 0px !important;
+
+        .Title {
+            font-weight: 600;
+            font-size: var(--h6-font-size);
+            line-height: 21px;
+            letter-spacing: -0.045em;
+            color: #646262;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .Location,
+        .Duration {
+            font-size: var(--small-text-font-size);
+            display: flex;
+            align-items: center;
+            line-height: 14px;
+            letter-spacing: -0.01em;
+            color: #565656;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        .Location::before,
+        .Duration::before {
+            position: relative;
+            //   transform: translateY(50%);
+            height: 10px;
+            margin-right: 0.4em;
+        }
+        .Location::before {
+            // content: url("../../assets/icons/svg/location.svg");
+        }
+        .Duration::before {
+            // content: url("../../assets/icons/svg/clock.svg");
+        }
+
+        .Price {
+            font-weight: 600;
+            font-size: var(--h5-font-size);
+            line-height: 24px;
+            letter-spacing: -0.045em;
+            color: #2e85f2;
+        }
+    }
+}
+
+.adve2rtcard {
+    border: unset !important;
+    border-radius: unset !important;
+    background-color: unset !important;
+    max-width: 150px;
+}
+
+// Media Queries
+
+.advertcard{
+    width:155px;
+    height:280px;
+    display:flex;
+    flex-direction:column;
+    border-radius:4px;
+    margin: 5px;
+    // filter: drop-shadow(0px 4px 7px rgba(0, 0, 0, 0.1));
+    box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
+    background-color: #fff;
+    .imagecontainer{
+        .advertthumbnail{
+            width: 100%; 
+            height: 150px;
+        }
+
+        /* Ribbon */
+        .ribbon {
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            position: absolute;
+            z-index: 1;
+
+            span {
+                position: absolute;
+                display: block;
+                width: 220px;
+                padding: 7px 0;
+                color: #fff;
+                text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+                text-align: center;
+                font-weight: bold;
+                font-size: 65%;
+                font-size: max(9px, 60%);
+                letter-spacing: 0.01em;
+                background-color: #2A84F2;
+            }
+            span.Clear {
+                background-color: #2A84F2;
+            }
+            span.Missing {
+                background-color: #92b115;
+            }
+            span.Salvage {
+                background-color: #d9a214;
+            }
+            span.Refurbished {
+                background-color: #00b9dc;
+            }
+            span.Parts {
+                background-color: #8eba13;
+            }
+        }
+
+        /* top left*/
+        .ribbon-top-left::before {
+            top: 0;
+            right: 0;
+        }
+        .ribbon-top-left::after {
+            bottom: 0;
+            left: 0;
+        }
+        .ribbon-top-left {
+            span {
+                right: -44px;
+                top: 20px;
+                transform: rotate(-45deg);
+            }
+        }
+
+        /* Badge */
+        .Badge {
+            position: absolute;
+            right: 8px;
+            z-index: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 6.5px;
+            background: #ffffff;
+            border-radius: 4px;
+            top: 8.0rem;
+            font-weight: bold;
+            font-size: 10px;
+            line-height: 12px;
+            letter-spacing: -0.045em;
+            color: var(--light-dark-color);
+        }
+
+        .Used {
+            background: #2A84F2;
+            color: #ffffff;
+        }
+
+    }
+    .productnametext{
+        font-size: 12px;
+        font-weight: bold;
+        margin-top:7px;
+        color: #373535;
+        margin-left: 5px;
+    }
+
+    .buttomofbox{
+        height: 48px;
+        background-color: #2A84F2;
+        width: 100%;
+        margin-left: 5px;
+    }
+}

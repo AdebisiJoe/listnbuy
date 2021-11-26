@@ -102,7 +102,7 @@ export class ProductdetailPage implements OnInit {
     this.slideImages = advert.data.advert.images;
 
     this.similarAds = advert.data.similar_ads;
-    console.log(this.slideImages);
+    console.log("here is the image",this.slideImages);
     this.seller=advert.data.seller;
     this.user_encoded_id=this.seller.encoded_id;
   }

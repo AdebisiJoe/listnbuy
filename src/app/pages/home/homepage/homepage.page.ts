@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HomeService } from 'src/app/api/home.service';
-import { faMotorcycle,faCar } from '@fortawesome/free-solid-svg-icons';
+import { faMotorcycle,faCar,faBicycle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-homepage',
@@ -12,6 +12,7 @@ export class HomepagePage implements OnInit {
 
   faMotorcycle = faMotorcycle;
   faCar=faCar;
+  faBicycle=faBicycle;
   constructor(private homeService: HomeService) {}
 
   vehicleArrays=[];

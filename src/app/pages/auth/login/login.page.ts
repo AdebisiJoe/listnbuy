@@ -29,7 +29,7 @@ export class LoginPage implements OnInit {
     this.user=await this.store.getUser();
 
     if (this.user){
-      this.router.navigate(['home']);
+      this.router.navigate(['sell']);
     }
 
   }
@@ -49,7 +49,7 @@ export class LoginPage implements OnInit {
 
         console.log(resp.user)
 
-        this.router.navigateByUrl("/home");
+        this.router.navigateByUrl("/sell");
         
       },
       (error: any) => {

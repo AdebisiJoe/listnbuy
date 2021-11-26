@@ -35,43 +35,36 @@
         <ion-button color="primary" (click)="search()">Search</ion-button>
       </ion-col> -->
       <ion-col size="6" *ngFor="let p of products">
-        <ion-card style="width: 155px; height: 280px" (click)="gotoDetail(p.encoded_id)">
-          <img [src]="p.image.small_image" style="width: 100%; height: 150px" />
-          <ion-card-header>
+        
+        <div class="advertcard" (click)="gotoDetail(p.encoded_id)">
+           
+          <div class="imagecontainer">
+
+            <div class="ribbon ribbon-top-left" *ngIf="p.title_status?.name">
+              <span class={{p.title_status?.name}}>{{p.title_status?.name}}</span>
+            </div>
+            <img
+              [src]="p.image.small_image"
+              class="advertthumbnail"
+            />
+          </div>
             <div class="ion-text-start">
-              <p
-                style="
-                  font-size: 14px;
-                  font-weight: bold;
-                  margin-top: -13px;
-                  color: #373535;
-                "
-              >
-                {{p.name}}
-              </p>
+              <p  class="productnametext">{{p.name}}</p>
             </div>
-          </ion-card-header>
-          <ion-card-content>
-            <div
-              class="ion-text-start"
-              style="margin-top: -20px; font-size: 10px"
+
+            <div class="ion-text-start"
+                style="margin-top: -20px; font-size: 10px;
+                margin-left: 5px;"
             >
-              <p style="font-size: 10px">{{p.state.name}}</p>
-              <p style="font-size: 10px">{{p.published_at_formatted}}</p>
-              <div
-                style="
-                  background-color: #2a84f2;
-                  width: 54px;
-                  height: 19px;
-                  border-radius: 5px;
-                  padding-left: 4px;
-                "
-              >
-                <p style="color: #ffffff">{{p.price_formatted}}</p>
-              </div>
+              <p><ion-icon name="location-outline"></ion-icon> {{p.state.name}}</p>
+              <p><ion-icon name="alarm-outline"></ion-icon>{{p.published_at_formatted}}</p>
             </div>
-          </ion-card-content>
-        </ion-card>
+
+          <div  class="ion-text-start" style="margin-left: 5px;">
+            <p style="color: #2a84f2">{{p.price_formatted}}</p>
+          </div>
+
+        </div> 
       </ion-col>
     </ion-row>
   </ion-grid>
