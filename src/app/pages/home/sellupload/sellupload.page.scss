@@ -1,0 +1,89 @@
+
+
+.typeicon{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin-top: -25px;
+    .icon{
+        // position: absolute;
+        
+        /* right: 16px; */
+        font-size: 25px;
+        z-index: 2;
+        background-color: #dddddf;
+        height: 40px;
+        width: 40px;
+        border-radius: 25px;
+        padding-top: 7px;  
+        margin: 20px 20px;
+    }
+
+   
+}
+
+.selected{
+    background-color:#2A84F2 !important;
+    color: #fff;
+    .textcolor{
+        color: #000;
+        font-size: 10px;
+        width: 100%;
+    }
+  }
+  .notselected{
+    background-color: grey;
+    color: #000;
+    font-size: 10px;
+  }
+
+
+  ion-item {
+    --ion-item-background: transparent;
+    --border-width: 0;
+    --inner-border-width: 0;
+    --highlight-color-focused: none;
+    .item-interactive.ion-valid{
+        --highlight-background: none;
+    }
+  }
+  
+  ion-input {
+    border-radius: 10px;
+    border: 1px solid #006a70;
+    font-size: 14px;
+    font-weight: 300;
+    --padding-start: 30px;
+    // width: 300px;
+    height: 42px;
+    --highlight-color-focused: none;
+    --highlight-background: none;
+    padding-left: 10px;
+  }
+
+  .item-interactive.ion-valid{
+    --highlight-background: none;
+  }
+
+  ion-select {
+    /* Applies to the value and placeholder color */
+    color: #545ca7;
+  
+    /* Set a different placeholder color */
+    --placeholder-color: grey;
+  
+    /* Set full opacity on the placeholder */
+    --placeholder-opacity: 1;
+  }
+
+  .forminput{
+    border: 1px solid #2A84F2;
+     border-radius: 10px;
+     --padding-start:5px;
+  }
+
+  .formlabel{
+    color: #2A84F2; 
+    margin-bottom: 13px
+  }

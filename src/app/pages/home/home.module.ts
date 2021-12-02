@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
+import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
 import { HomeRoutingModule } from './home-routing.module';
@@ -15,9 +14,12 @@ import { TermsandconditionPage } from './termsandcondition/termsandcondition.pag
 import { StartPage } from './start/start.page';
 import { StartchoicePage } from './startchoice/startchoice.page'
 import { SellerprofilePage } from '../markets/sellerprofile/sellerprofile.page';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SelluploadPage } from './sellupload/sellupload.page';
+import { SharedDirectivesModule } from 'src/app/directives/shared-directives.module';
 
-import { SharedDirectivesModule } from '../../directives/shared-directives.module';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
+
+
 
 @NgModule({
   imports: [
@@ -25,9 +27,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     FormsModule,
     IonicModule,
     HomeRoutingModule,
-    SharedDirectivesModule,
-    FontAwesomeModule
-
+    FontAwesomeModule,
+    SharedDirectivesModule
+    
   ],
   declarations: [
     AboutusPage,
@@ -39,7 +41,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome'
     TermsandconditionPage,
     StartPage,
     StartchoicePage,
-    SellerprofilePage
+    SellerprofilePage,
+    SelluploadPage
+    
+
   ]
 })
 export class HomeModule {

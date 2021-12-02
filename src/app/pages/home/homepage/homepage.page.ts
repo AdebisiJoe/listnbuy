@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { HomeService } from 'src/app/api/home.service';
 import { faMotorcycle,faCar,faBicycle } from '@fortawesome/free-solid-svg-icons';
 

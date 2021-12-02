@@ -14,6 +14,7 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons';
+import { SharedDirectivesModule } from './directives/shared-directives.module';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
     AutoCompleteModule,
     ReactiveFormsModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    SharedDirectivesModule
     
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

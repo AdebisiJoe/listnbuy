@@ -1,0 +1,287 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>sell upload</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<!-- 
+   <div class="typeicon" >
+
+    <div  *ngFor="let state of states" class="ion-text-center icon" appHighlight color="#2A84F2">
+      <ion-icon name={{state.icon}}  > </ion-icon>    
+    </div> 
+        
+  
+  </div> -->
+
+<div>
+ <p class="ion-margin">*What are you listing?</p>
+  <div class="typeicon" >
+   
+    <div hightlightChoice  *ngFor="let state of states" class="ion-text-center icon notselected" (click)="setStateAsActive(state.name)" >
+      <ion-icon name={{state.icon}}  > </ion-icon> 
+      <p class="textcolor" style="font-size: 10px;width:100%;">{{state.name}}</p>   
+    </div> 
+
+  </div>
+</div>
+
+  <ion-slides pager="false" #mainSlides [options]="slideOpts" style="margin-top: -28px;">
+    <ion-slide>
+     
+      <ion-grid style="background-color: #ffffff;margin-top:10%;box-shadow: 0px 5px #DDDDDD;" fixed>
+        <p class="ion-margin" style="padding-bottom: 10px;">Basic Information</p>
+        <ion-row >
+          
+           <ion-col size="6"  style="margin-top: -40px;">
+
+            <div  *ngIf="value">
+
+              <ion-item>
+                <ion-label position="stacked"  class="formlabel">*Model Year</ion-label>
+                
+                <ion-select placeholder="Select One" [(ngModel)]="model_year" class="forminput">
+                  <ion-select-option value="f">Female</ion-select-option>
+                  <ion-select-option value="m">Male</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </div>
+            
+            
+            <ion-item>
+              <ion-label position="stacked" class="formlabel">*Vehicle Body Type</ion-label>
+              
+
+              <ion-select placeholder="Select One"[(ngModel)]="type_id" class="forminput">
+                <ion-select-option value="f">Female</ion-select-option>
+                <ion-select-option value="m">Male</ion-select-option>
+              </ion-select>
+
+            </ion-item>
+
+
+            <ion-item>
+              <ion-label position="stacked" class="formlabel">*Vehicle Make</ion-label>
+              
+              <ion-select placeholder="Select One" [(ngModel)]="type_id"class="forminput">
+                <ion-select-option value="f">Female</ion-select-option>
+                <ion-select-option value="m">Male</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-label position="stacked" class="formlabel">*Vehicle Model</ion-label>
+              
+              <ion-select placeholder="Select One" [(ngModel)]="type_id" class="forminput">
+                <ion-select-option value="f">Female</ion-select-option>
+                <ion-select-option value="m">Male</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-label position="stacked" class="formlabel">*Mileage (miles)</ion-label>
+              <ion-input type="number"  [(ngModel)]="type_id" class="forminput"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="stacked" class="formlabel">VIN (optional)</ion-label>
+              <ion-input type="text"  [(ngModel)]="type_id" class="forminput"></ion-input>
+            </ion-item>
+
+            <!-- <ion-item >
+              <ion-button style="margin-top: 10px;" slot="end"  (click)="goToNext()"><p>Next</p></ion-button>
+            </ion-item> -->
+           </ion-col>
+          
+
+     
+          <ion-col size="6"  style="margin-top: -40px;">
+           
+           <ion-item>
+             <ion-label position="stacked"  class="formlabel">Engine Size (optional)</ion-label>
+             <ion-input type="text"  [(ngModel)]="model_year" class="forminput"></ion-input>
+           </ion-item>
+           
+           <ion-item>
+             <ion-label position="stacked" class="formlabel">*Transmission type</ion-label>
+             <!-- <ion-input type="text"  [(ngModel)]="type_id" class="forminput"></ion-input> -->
+
+             <ion-select placeholder="Select One" [(ngModel)]="type_id" class="forminput">
+              <ion-select-option value="f">Female</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+           </ion-item>
+
+
+           <ion-item>
+             <ion-label position="stacked" class="formlabel">*Fuel Type</ion-label>
+             
+             <ion-select placeholder="Select One" [(ngModel)]="type_id" class="forminput">
+              <ion-select-option value="f">Female</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+           </ion-item>
+
+
+           <ion-item>
+             <ion-label position="stacked" class="formlabel">*Condition</ion-label>
+             
+             <ion-select placeholder="Select One" [(ngModel)]="type_id" class="forminput">
+              <ion-select-option value="f">Female</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+           </ion-item>
+
+
+           <ion-item>
+             <ion-label position="stacked" class="formlabel">*Title Status</ion-label>
+             
+             <ion-select placeholder="Select One" [(ngModel)]="type_id" class="forminput">
+              <ion-select-option value="f">Female</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+           </ion-item>
+
+           <ion-item>
+             <ion-label position="stacked" class="formlabel">*Drive line type</ion-label>
+             
+             <ion-select placeholder="Select One" [(ngModel)]="type_id" class="forminput">
+              <ion-select-option value="f">Female</ion-select-option>
+              <ion-select-option value="m">Male</ion-select-option>
+            </ion-select>
+           </ion-item>
+
+           <ion-item >
+             <ion-button style="margin-top: 10px;" slot="end"  (click)="goToNext()"><p>Next</p></ion-button>
+           </ion-item>
+
+           
+          </ion-col>
+
+          </ion-row>
+       
+      </ion-grid>
+    </ion-slide>
+
+    <ion-slide>
+     
+      <ion-grid style="background-color: #ffffff;margin-top:10%;" fixed>
+        <ion-row >
+           <ion-col size="12"  style="margin-top: -40px;">
+            <p class="ion-margin">Location</p>
+            <ion-item>
+              <ion-label position="stacked" class="formlabel">*Choose State</ion-label>
+              <ion-select placeholder="Select One" [(ngModel)]="type_id" class="forminput">
+                <ion-select-option value="f">Female</ion-select-option>
+                <ion-select-option value="m">Male</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-label position="stacked" class="formlabel">*Choose City</ion-label>
+              <ion-select placeholder="Select One" [(ngModel)]="type_id" class="forminput">
+                <ion-select-option value="f">Female</ion-select-option>
+                <ion-select-option value="m">Male</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="stacked" class="formlabel">*Postal Code</ion-label>
+              <ion-input type="text"  [(ngModel)]="type_id" class="forminput"></ion-input>
+            </ion-item>
+            
+            <p class="ion-margin">Description and Price</p>
+
+            <ion-item>
+              <ion-label position="stacked" class="formlabel">*Price Code</ion-label>
+              <ion-input type="text"  [(ngModel)]="type_id" class="forminput"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="stacked" class="formlabel">*Suggested Retail</ion-label>
+              <ion-input type="text"  [(ngModel)]="type_id" class="forminput"></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="stacked" class="formlabel">*Full Description</ion-label>
+              <ion-textarea rows="3" [(ngModel)]="type_id" class="forminput"></ion-textarea>
+
+            </ion-item>
+
+            <ion-item >
+              <ion-button style="margin-top: 10px;" slot="start"  (click)="goBack()"><p>Previous</p></ion-button>
+              <ion-button style="margin-top: 10px;" slot="end"  (click)="goToNext()"><p>Next</p></ion-button>
+            </ion-item>
+
+    </ion-col>
+  </ion-row>
+</ion-grid> 
+    </ion-slide>
+
+
+    <ion-slide>
+      
+      <ion-grid style="background-color: #ffffff;margin-top:10%;" fixed>
+        <ion-row >
+           <ion-col size="12"  style="margin-top: -40px;">
+            <p class="ion-margin">Upload Image and Video Files</p>
+              <ion-item>
+                <ion-label position="stacked" class="formlabel">Choose Type</ion-label>
+                <ion-input type="text"  [(ngModel)]="type_id" class="forminput"></ion-input>
+              </ion-item>
+
+
+              <ion-item>
+                <ion-label position="stacked" class="formlabel">Choose Type</ion-label>
+                <ion-input type="text"  [(ngModel)]="type_id" class="forminput"></ion-input>
+              </ion-item>
+              
+
+              <ion-item >
+                <ion-button style="margin-top: 10px;" slot="start"  (click)="goBack()"><p>Previous</p></ion-button>
+                <ion-button style="margin-top: 10px;" slot="end"  (click)="goToNext()"><p>Next</p></ion-button>
+              </ion-item>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid> 
+    </ion-slide>
+
+    <ion-slide>
+        
+      <ion-grid style="background-color: #ffffff;margin-top:10%" fixed>
+        <ion-row >
+           
+          <ion-col size="12"  style="margin-top: -40px;">
+            <p class="ion-margin">subscription plan</p>
+      <ion-item>
+        <ion-label position="stacked" class="formlabel">Choose Type</ion-label>
+        <ion-input type="text"  [(ngModel)]="type_id" class="forminput"></ion-input>
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label position="stacked" class="formlabel">Choose Type</ion-label>
+        <ion-input type="text"  [(ngModel)]="type_id" class="forminput"></ion-input>
+      </ion-item>
+      
+
+      <ion-item >
+     
+        <ion-button style="margin-top: 10px;"  slot="end"  (click)="loginUser()"><p>Submit</p></ion-button>
+
+        <ion-button style="margin-top: 10px;" slot="start"  (click)="goBack()"><p>Previous</p></ion-button>
+        
+      </ion-item>
+
+    </ion-col>
+  </ion-row>
+</ion-grid>
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

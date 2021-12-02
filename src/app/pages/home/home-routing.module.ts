@@ -10,6 +10,7 @@ import { PrivacypolicyPage } from './privacypolicy/privacypolicy.page';
 import { TermsandconditionPage } from './termsandcondition/termsandcondition.page';
 import { StartPage } from './start/start.page';
 import { StartchoicePage } from './startchoice/startchoice.page';
+import { SelluploadPage } from './sellupload/sellupload.page';
 
 
 
@@ -58,6 +59,10 @@ const routes: Routes = [
   {
     path: 'startchoice',
     component: StartchoicePage
+  },
+  {
+    path: 'sellupload',
+    component: SelluploadPage
   },
  
 ];
