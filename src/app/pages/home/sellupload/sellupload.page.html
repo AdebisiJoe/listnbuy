@@ -1,5 +1,9 @@
 <ion-header>
+
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-title>sell upload</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -30,7 +34,7 @@
   <ion-slides pager="false" #mainSlides [options]="slideOpts" style="margin-top: -28px;">
     <ion-slide>
      
-      <ion-grid style="background-color: #ffffff;margin-top:10%;box-shadow: 0px 5px #DDDDDD;" fixed>
+      <ion-grid style="background-color: #ffffff;margin-top:20%" fixed>
         <p class="ion-margin" style="padding-bottom: 10px;">Basic Information</p>
         <ion-row >
           
@@ -168,7 +172,7 @@
 
     <ion-slide>
      
-      <ion-grid style="background-color: #ffffff;margin-top:10%;" fixed>
+      <ion-grid style="background-color: #ffffff;margin-top:20%;" fixed>
         <ion-row >
            <ion-col size="12"  style="margin-top: -40px;">
             <p class="ion-margin">Location</p>
@@ -225,22 +229,112 @@
 
     <ion-slide>
       
-      <ion-grid style="background-color: #ffffff;margin-top:10%;" fixed>
+      <ion-grid style="background-color: #ffffff;margin-top:20%;" fixed>
         <ion-row >
            <ion-col size="12"  style="margin-top: -40px;">
             <p class="ion-margin">Upload Image and Video Files</p>
-              <ion-item>
-                <ion-label position="stacked" class="formlabel">Choose Type</ion-label>
-                <ion-input type="text"  [(ngModel)]="type_id" class="forminput"></ion-input>
-              </ion-item>
+             
+            
 
 
-              <ion-item>
-                <ion-label position="stacked" class="formlabel">Choose Type</ion-label>
-                <ion-input type="text"  [(ngModel)]="type_id" class="forminput"></ion-input>
-              </ion-item>
-              
 
+             <ion-row>
+               <ion-col  size="12">
+                  <div class="addcoverimage"  >
+                    <ion-row>
+                     
+                      <ion-col size="4">
+                        <div class="ion-text-center icon" (click)="file.click()">
+                          <ion-icon name="camera-outline"></ion-icon>
+                          <input
+                          #file
+                          type="file"
+                          accept="image/png,image/gif,image/jpeg,image/jpg,image/JPG,image/*"
+                          multiple
+                          class="inputfile3"
+                          name='pic'
+                          (change)="onCoverImagesSelect()"
+                        />
+                        <p class="textcolor" style="font-size: 10px;width:100%;">Add Cover Image</p>
+                        </div>
+                      </ion-col>
+                      <ion-col size="8">
+
+                        <div class="coverimages" id="addcoverimage">
+    
+                        </div>
+                      </ion-col>
+                    </ion-row>
+
+                    
+                </div>
+
+                
+               </ion-col>
+
+             
+
+               <ion-col size="12">
+                  <div class="addotherimages" >
+                    <ion-row>
+                      <ion-col size="4">
+                        <div class="ion-text-center icon" (click)="file2.click()">
+                          <ion-icon name="camera-outline"></ion-icon>
+                          <input
+                          #file2
+                          type="file"
+                          accept="image/png,image/gif,image/jpeg,image/jpg,image/JPG,image/*"
+                          multiple
+                          class="inputfile3"
+                          name='pic'
+                          (change)="onOtherImagesSelect()"
+                        />
+                        <p class="textcolor" style="font-size: 10px;width:100%;">Add other Images</p>
+                        </div>
+                      </ion-col>
+                      <ion-col size="8">
+                        <div class="otherimages" id="addotherimages">
+                        
+                        </div>
+                      </ion-col>
+                    </ion-row>
+                  </div>
+               </ion-col>
+
+               <ion-col size="12">
+                <div class="addvideo"  >
+                  
+                  <ion-row>
+                    <ion-col size="4">
+
+                      <div class="ion-text-center icon"  (click)="file3.click()">
+                        <ion-icon name="videocam-outline"></ion-icon>
+                        <input
+                        #file3
+                        type="file"
+                        accept="video/mp4,video/x-m4v,video/*"
+                        class="inputfile3"
+                        name='pic'
+                        (change)="onVideoSelect()"
+                      />
+                      <p class="textcolor" style="font-size: 10px;width:100%;">Add Video</p>
+                      </div>
+                    </ion-col>
+                    <ion-col size="8">
+                      <div class="video" id="addvideo">
+                        <video width="200" height="100" controls >
+                          <source src="" id="video_here">
+                        
+                       </video>
+                      </div>
+                    </ion-col>
+                  </ion-row>
+
+                </div>
+             </ion-col>
+             </ion-row>
+
+            
               <ion-item >
                 <ion-button style="margin-top: 10px;" slot="start"  (click)="goBack()"><p>Previous</p></ion-button>
                 <ion-button style="margin-top: 10px;" slot="end"  (click)="goToNext()"><p>Next</p></ion-button>
@@ -253,23 +347,51 @@
 
     <ion-slide>
         
-      <ion-grid style="background-color: #ffffff;margin-top:10%" fixed>
+      <ion-grid style="background-color: #ffffff;margin-top:20%" fixed>
         <ion-row >
            
           <ion-col size="12"  style="margin-top: -40px;">
-            <p class="ion-margin">subscription plan</p>
-      <ion-item>
-        <ion-label position="stacked" class="formlabel">Choose Type</ion-label>
-        <ion-input type="text"  [(ngModel)]="type_id" class="forminput"></ion-input>
-      </ion-item>
+            <p class="ion-margin">subscription plans</p>
+     
 
+            <ion-row>
+              <ion-col size="12">
+            
 
-      <ion-item>
-        <ion-label position="stacked" class="formlabel">Choose Type</ion-label>
-        <ion-input type="text"  [(ngModel)]="type_id" class="forminput"></ion-input>
-      </ion-item>
-      
+                <ion-radio-group value="biff" class="option" >
+                  <ion-item class="optionitem">
+                    <ion-label>
+                       <h2 >Basic Plan <br/> FREE</h2>
+                       <p>Advert deletes after 30 days <br/>1 Number of ads <br/>7 Images per Post <br/>Basic Listing</p></ion-label>
+                    <ion-radio  slot="start" value="biff"></ion-radio>
+                  </ion-item>
+              
+                  <ion-item  class="optionitem">
+                    <ion-label> 
+                      <h2 >Basic Plus <br/> $3.0</h2>
+                      <p>Advert deletes after 30 days <br/>1 Number of ads <br/>12 Images per Post <br/>Basic Listing</p></ion-label>
+                    <ion-radio  slot="start" value="griff"></ion-radio>
+                  </ion-item>
+              
+                  <ion-item  class="optionitem">
+                    <ion-label> 
+                      <h2 >Premium Plan <br/> $7.0</h2>
+                      <p>Advert deletes after 30 days <br/>1 Number of ads <br/>20 Images per Post <br/>Video  <br/>Premium Listing</p></ion-label>
+                    <ion-radio  slot="start" value="buford"></ion-radio>
+                  </ion-item>
 
+                  <ion-item  class="optionitem">
+                    <ion-label> 
+                      <h2 >Business Plan <br/> $15.0</h2>
+                      <p>Advert deletes after 30 days <br/>1 Number of ads <br/>20 Images per Post <br/>Video <br/>(5 post delete credit)  <br/>Premium Listing</p>
+                    </ion-label>
+                    <ion-radio  slot="start" value="bord"></ion-radio>
+                  </ion-item>
+                </ion-radio-group>
+  
+              </ion-col>    
+            </ion-row>
+ 
       <ion-item >
      
         <ion-button style="margin-top: 10px;"  slot="end"  (click)="loginUser()"><p>Submit</p></ion-button>

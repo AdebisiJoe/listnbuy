@@ -22,10 +22,10 @@ export class AppComponent implements OnInit{
 
 
   async ngOnInit() {
-    await SplashScreen.show({
-      showDuration: 4000,
-      autoHide: true
-    });
+    // await SplashScreen.show({
+    //   showDuration: 4000,
+    //   autoHide: true
+    // });
   }
 
 

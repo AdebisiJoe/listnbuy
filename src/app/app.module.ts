@@ -15,6 +15,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 import { far } from '@fortawesome/free-regular-svg-icons'
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { SharedDirectivesModule } from './directives/shared-directives.module';
+import { CustomCheckboxModule } from './components/custom-checkbox/custom-checkbox.module';
+
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { SharedDirectivesModule } from './directives/shared-directives.module';
     ReactiveFormsModule,
     FormsModule,
     FontAwesomeModule,
-    SharedDirectivesModule
+    SharedDirectivesModule,
+    CustomCheckboxModule
     
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],

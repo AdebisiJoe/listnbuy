@@ -17,6 +17,8 @@ import { SellerprofilePage } from '../markets/sellerprofile/sellerprofile.page';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SelluploadPage } from './sellupload/sellupload.page';
 import { SharedDirectivesModule } from 'src/app/directives/shared-directives.module';
+import { CustomCheckboxModule } from 'src/app/components/custom-checkbox/custom-checkbox.module';
+
 
 
 
@@ -28,7 +30,8 @@ import { SharedDirectivesModule } from 'src/app/directives/shared-directives.mod
     IonicModule,
     HomeRoutingModule,
     FontAwesomeModule,
-    SharedDirectivesModule
+    SharedDirectivesModule,
+    CustomCheckboxModule
     
   ],
   declarations: [
