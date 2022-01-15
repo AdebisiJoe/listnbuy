@@ -5,6 +5,8 @@ import { faMotorcycle,faCar,faBicycle } from '@fortawesome/free-solid-svg-icons'
 import { Camera,CameraResultType,CameraSource,Photo } from '@capacitor/camera';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { Platform } from '@ionic/angular';
+import { SellerService } from 'src/app/api/seller.service';
+SellerService
 
 const IMAGE_DIR = 'stored-images';
 
@@ -30,9 +32,18 @@ export class SelluploadPage implements OnInit {
    only_cars:boolean=true;
    cars_and_bikes:boolean=true;
    general_market:boolean=true;
+   checkedIdx=0;
+   optionsData:any;
+   slideOpts = {
+    initialSlide: 0,
+    speed: 400
+  };
 
      // get access to the IonCheckbox element
   @ContentChild(IonCheckbox) checkbox: IonCheckbox;
+  @ViewChild('file', { static: false }) public file: ElementRef;
+  @ViewChild('file2', { static: false }) public file2: ElementRef;
+  @ViewChild('file3', { static: false }) public file3: ElementRef;
 
   @HostBinding('class.checkbox-checked') isChecked: boolean;
 
@@ -51,17 +62,15 @@ export class SelluploadPage implements OnInit {
     this.value=!this.value;
   }
 
-  slideOpts = {
-    initialSlide: 0,
-    speed: 400
-  };
+
   private platform: Platform;
 
-  constructor(platform: Platform) { 
+  constructor(platform: Platform,private sellerService:SellerService) { 
     this.platform = platform;
   }
 
   ngOnInit() {
+    this.getOptionsData();
   }
 
   public goBack() {
@@ -72,28 +81,11 @@ export class SelluploadPage implements OnInit {
     this.slides.slideNext();
   }
 
-  checkedIdx=0;
-
-  options = [
-    'Cash On Delivery',
-    'PayuMoney Wallet',
-    'Pay with Paytm Wallet',
-  ]
-
-  // ngAfterContentInit() {
-  //   // set the checked state
-  //   this.isChecked = this.checkbox.checked;
-
-  //   // subscribe to changes
-  //   this.checkbox.ionChange.subscribe(changes => {
-  //     this.isChecked = changes.detail.checked;
-  //   });
-  // }
-
-  @ViewChild('file', { static: false }) public file: ElementRef;
-  @ViewChild('file2', { static: false }) public file2: ElementRef;
-  @ViewChild('file3', { static: false }) public file3: ElementRef;
-
+  public async getOptionsData(){
+     this.optionsData= await this.sellerService.getAdvertsDataOptions();
+     console.log(this.optionsData);
+  }
+  
   public onCoverImagesSelect(): void {
      const fileArray: Array<File> = this.file.nativeElement.files;
 

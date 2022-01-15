@@ -4,7 +4,7 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>sell upload</ion-title>
+    <!-- <ion-title>Upload</ion-title> -->
   </ion-toolbar>
 </ion-header>
 
@@ -249,11 +249,13 @@
                           <input
                           #file
                           type="file"
-                          accept="image/png,image/gif,image/jpeg,image/jpg,image/JPG,image/*"
+                          accept="image/png,image/gif,image/jpeg,image/jpg,image/JPG,image/*;capture=camera"
                           multiple
                           class="inputfile3"
                           name='pic'
                           (change)="onCoverImagesSelect()"
+
+                         
                         />
                         <p class="textcolor" style="font-size: 10px;width:100%;">Add Cover Image</p>
                         </div>
@@ -283,11 +285,13 @@
                           <input
                           #file2
                           type="file"
-                          accept="image/png,image/gif,image/jpeg,image/jpg,image/JPG,image/*"
+                          accept="image/png,image/gif,image/jpeg,image/jpg,image/JPG,image/*;capture=camera"
                           multiple
                           class="inputfile3"
                           name='pic'
                           (change)="onOtherImagesSelect()"
+
+                         
                         />
                         <p class="textcolor" style="font-size: 10px;width:100%;">Add other Images</p>
                         </div>
@@ -312,10 +316,12 @@
                         <input
                         #file3
                         type="file"
-                        accept="video/mp4,video/x-m4v,video/*"
+                        accept="video/mp4,video/x-m4v,video/*;capture=camera"
                         class="inputfile3"
                         name='pic'
                         (change)="onVideoSelect()"
+
+                        
                       />
                       <p class="textcolor" style="font-size: 10px;width:100%;">Add Video</p>
                       </div>

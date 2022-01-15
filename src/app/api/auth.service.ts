@@ -23,7 +23,7 @@ export class AuthService {
 
   login(email, password) {
     return this.http.post<any>(
-      `${environment.apiUrl}auth/login`,
+      `${environment.apiUrl2}auth/login`,
       { email, password },
       {
         headers: {
@@ -51,7 +51,7 @@ export class AuthService {
     };
     return this.http
       .post<User>(
-        `${environment.apiUrl}auth/register`,
+        `${environment.apiUrl2}auth/register`,
         { email, firstname, lastname, password },
         httpOtions
       )

@@ -46,7 +46,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: OnboardingPage
+    component: StartPage
   },
   {
     path: 'privacypolicy',

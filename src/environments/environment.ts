@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://listnbuy.com/api/v2/',
+  apiUrl: 'https://listnbuy.com/api/v1/',
   apiUrl2: 'https://listnbuy.com/api/v2/',
 };
 
